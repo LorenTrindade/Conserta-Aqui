@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width-device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie-edge">
+  <title>Perfil Cliente</title>
+  <link rel="stylesheet" href="style1.css">    
+  <!-- Link referente ao bootstrap-->
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <!-- Link referente ao fontawesome-->
+  <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+     
+  <style>
+    
+    body{
+      background: -webkit-linear-gradient(left, #0a2d44, #33419d);
+    }
+  </style>
+
+</head>
+<body>
+  
+  <!--  Jquery, popper e bootstrap  -->
+  <script src="node_modules/jquery/dist/jquery.slim.js" charset="utf-8"></script>
+  <script src="node_modules/popper.js/dist/popper.js" charset="utf-8"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.js" charset="utf-8"></script>
+
+  <!-- Primeiro Navbar-->
+  <nav class="navbar navbar-expand-md fixed-top shadow">
+    <a class="navbar-brand" href="#">
+      <img src="img/logo.png" class="img-fluid" alt="Conserta Aqui">
+    </a>
+
+    <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto ">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html.html">Início<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="telaServicos.html">Serviços</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link" href="#">Calcular</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link" href="#">Como funciona?</a>
+        </li>
+      </ul>
+      
+        <form action="#" class="form-inline">
+            <a class="btn btn-outline-light" href="#">Minha Conta</a>                                    
+        </form>
+        
+    </div>
+  </nav>
+
+  <br><br><br><br><br>
+  
+  <div class="container emp-profile">
+    <form method="post">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="profile-img">
+            <img src="img/profile.jpg" alt=""/>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="profile-head">
+            <h5>
+              Eloisa Souza
+            </h5>
+            <h6>
+              Cliente Conserta Aqui
+            </h6>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Sobre</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="avaliacoes-tab" data-toggle="tab" href="#avaliacoes" role="tab" aria-controls="avaliacoes" aria-selected="false">Avaliações</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-8">
+          <div class="tab-content profile-tab" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <div class="row">
+                <div class="col-md-6">
+                  <label>ID do usuário</label>
+                </div>
+                <div class="col-md-6">
+                  <p>Elo123</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Nome</label>
+                </div>
+                <div class="col-md-6">
+                  <p>Eloisa Souza</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Email</label>
+                </div>
+                <div class="col-md-6">
+                  <p>eloisas2010@gmail.com</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Telefone</label>
+                </div>
+                <div class="col-md-6">
+                  <p>(92) 99999-9999</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Cidade</label>
+                </div>
+                <div class="col-md-6">
+                  <p>Manaus-AM</p>
+                </div>
+              </div>
+            </div>
+              
+            <div class="tab-pane fade" id="avaliacoes" role="tabpanel" aria-labelledby="avaliacoes-tab">
+              <div class="card">
+                <div class="card-header">
+                  Prestador: Luan Souza
+                </div>
+                <div class="card-body">
+                  <blockquote class="blockquote mb-0">
+                    <p>"Uma ótima cliente, super educada e paciente"</p>
+                    <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                  </blockquote>
+                </div>
+              </div>
+              <br>
+              <div class="card">
+                <div class="card-header">
+                Prestador: José Silva
+              </div>
+              <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                  <p>Não gostei de prestar serviço para essa senhora, ela é super impaciente e grossa.</p>
+                  <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                </blockquote>
+              </div>
+            </div>
+            <br>
+            <div class="card">
+              <div class="card-header">
+                Prestador: Lucas Brito
+              </div>
+              <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                  <p>Uma boa cliente, faria mais serviços para ela</p>
+                  <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                </blockquote>
+              </div>
+            </div>
+            </div>
+              
+          </div>
+        </div>
+      </div>
+    </form>           
+  </div>
+  
+
+
+  <br><br><br><br><br>    
+
+  <!-- Footer -->
+  <div class="rodape">
+    <div style="background-color:#0c3d5e; padding:40px 0 color:#fff;">
+      <footer class="page-footer font-small ">
+
+        <div class="container">
+
+          <!-- Grid row-->
+          <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+
+            <!-- Grid column -->
+            <div class="col-md-2 mb-3">
+              <h6 class="text-uppercase font-weight-bold">
+                <a href="index.html.html">
+                 <span style="color: white">Início</span>
+                 
+               </a>
+             </h6>
+           </div>
+           <li class="footer-menu-divider color:aliceblue"></li>
+           <div class="col-md-2 mb-3">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="telaServicos.html">
+                <span style="color: white">Serviços</span>
+              </a>
+            </h6>
+          </div>
+          <li class="footer-menu-divider color: aliceblue"></li>
+          <div class="col-md-2 mb-3">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="#!">
+                <span style="color: white">Sobre o Conserta Aqui</span>
+              </a>
+            </h6>
+          </div>
+          <li class="footer-menu-divider color:aliceblue"></li>
+          <div class="col-md-2 mb-3">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="termosdeuso.html">
+               <span style="color: white"> Termos de uso</span>
+             </a>
+           </h6>
+         </div>
+
+       </div>
+       <!-- Grid row-->
+       
+       <hr class="rgba-white-light" style="margin: 0 20%;">
+       
+     </div>
+
+     <!-- Copyright -->
+     <div class="footer-copyright text-center py-3"><span style="color: white">© 2020 Copyright</span>
+     </div>
+
+   </footer>
+ </div>
+</div>
+
+
+</body>
+</html>

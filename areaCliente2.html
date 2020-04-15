@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width-device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie-edge">
+  <title>Área Cliente</title>
+  <link rel="stylesheet" href="style1.css">    
+  <!-- Link referente ao bootstrap-->
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <!-- Link referente ao fontawesome-->
+  <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">  
+  
+  <style>
+    
+    body{
+      background: -webkit-linear-gradient(left, #0a2d44, #33419d);
+    }
+  </style>
+
+</head>
+<body>
+  
+  <!--  Jquery, popper e bootstrap  -->
+  <script src="node_modules/jquery/dist/jquery.slim.js" charset="utf-8"></script>
+  <script src="node_modules/popper.js/dist/popper.js" charset="utf-8"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.js" charset="utf-8"></script>
+
+  <!-- Primeiro Navbar-->
+  <nav class="navbar navbar-expand-md fixed-top shadow">
+    <a class="navbar-brand" href="#">
+      <img src="img/logo.png" class="img-fluid" alt="Conserta Aqui">
+    </a>
+
+    <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto ">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Início<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="telaServicos.html">Serviços</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link" href="#">Calcular</a>
+        </li>
+          
+        <li class="nav-item">
+          <a class="nav-link" href="#">Como funciona?</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Digite aqui">
+        </div>
+        <button type="submit" class="btn btnDivulgar">Pesquisar</button>
+      </form>
+      
+    </div>
+  </nav>
+
+  <br><br><br><br><br>
+  
+  <div class="container emp-profile">
+    <form method="post">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="profile-img">
+            <img src="img/profile.jpg" alt=""/>
+            <div class="file btn btn-lg btn-primary">
+              Alterar foto
+              <input type="file" name="file"/>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="profile-head">
+            <h5>
+              Eloisa Souza
+            </h5>
+            <h6>
+              Cliente Conserta Aqui
+            </h6>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Sobre mim</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Contratados</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="avaliacoes-tab" data-toggle="tab" href="#avaliacoes" role="tab" aria-controls="avaliacoes" aria-selected="false">Avaliações</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="perfis-tab" data-toggle="tab" href="#perfis" role="tab" aria-controls="perfis" aria-selected="false">Interesse</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="gastos-tab" data-toggle="tab" href="#gastos" role="tab" aria-controls="gastos" aria-selected="false">Gastos</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Editar Perfil"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="profile-work">
+            <p>CONFIGURAÇÕES DE PERFIL  </p>
+            <button type="button" class="btn btn-link" id="btnSenhaperfil" data-toggle="modal" data-target="#myModal2">Alterar senha</button><br/>
+            <button type="button" class="btn btn-link"  id="btnDadosperfil">Alterar dados</button><br/>
+            <button type="button" class="btn btn-link" id="btnSair">Sair</button>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="tab-content profile-tab" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <div class="row">
+                <div class="col-md-6">
+                  <label>ID do usuário</label>
+                </div>
+                <div class="col-md-6">
+                  <p>Elo123</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Nome</label>
+                </div>
+                <div class="col-md-6">
+                  <p>Eloisa Souza</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Email</label>
+                </div>
+                <div class="col-md-6">
+                  <p>eloisas2010@gmail.com</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Telefone</label>
+                </div>
+                <div class="col-md-6">
+                  <p>(92) 99999-9999</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Cidade</label>
+                </div>
+                <div class="col-md-6">
+                  <p>Manaus-AM</p>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+              <div class="servicoscontratados">
+                <div class="container mt-2">
+                  <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                      <div class="card card-block">
+                        <img src="img/pia.jpg" alt="Seus serviços">
+                        <div class="card-body">
+                          <h5 class="card-title mt-3 mb-3">Conserto de pia</h5>                          
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                      <div class="card card-block">
+                        <img src="img/arcond.jpg" alt="Seus serviços">
+                        <div class="card-body">
+                          <h5 class="card-title  mt-3 mb-3">Manutençao de ar-condicionado</h5>                          
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                      <div class="card card-block">
+                        <img src="img/eletrica.jpg" alt="Photo of sunset">
+                        <div class="card-body">
+                          <h5 class="card-title  mt-3 mb-3">Conserto de fiação elétrica</h5>                          
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                      <div class="card card-block">
+                        <img src="img/pintura.jpg" alt="Photo of sunset">
+                        <div class="card-body">
+                          <h5 class="card-title  mt-3 mb-3">Pintura de parede</h5>                          
+                        </div>
+                      </div>
+                    </div>    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="avaliacoes" role="tabpanel" aria-labelledby="avaliacoes-tab">
+              <div class="card">
+                <div class="card-header">
+                  Prestador: Luan Souza
+                </div>
+                <div class="card-body">
+                  <blockquote class="blockquote mb-0">
+                    <p>"Uma ótima cliente, super educada e paciente"</p>
+                    <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                  </blockquote>
+                </div>
+              </div>
+              <br>
+              <div class="card">
+                <div class="card-header">
+                Prestador: José Silva
+              </div>
+              <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                  <p>Não gostei de prestar serviço para essa senhora, ela é super impaciente e grossa.</p>
+                  <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                </blockquote>
+              </div>
+            </div>
+            <br>
+            <div class="card">
+              <div class="card-header">
+                Prestador: Lucas Brito
+              </div>
+              <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                  <p>Uma boa cliente, faria mais serviços para ela</p>
+                  <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                </blockquote>
+              </div>
+            </div>
+            </div>
+              
+              <div class="tab-pane fade" id="perfis" role="tabpanel" aria-labelledby="perfis-tab">
+                  <div class="text-center">
+                  <h5>Perfis de interesse</h5>
+                  </div>
+               <section id="team" class="pb-5">
+                <div class="container">
+                 <div class="row">
+                  
+                  <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                      <div class="mainflip">
+                        <div class="frontside">
+                          <div class="card">
+                            <div class="card-body text-center">
+                              <p><img class=" img-fluid" src="img/pe1.jpg" alt="card image"></p>
+                              <h4 class="card-title">Jorge Augusto</h4>
+                              <p class="card-text">Pintor profissional e experiente na área de Alvenaria.</p>
+                              <a href="#" class="btn btn-primary btn-sm">Ver perfil<i class="fa fa-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="backside">
+                          <div class="card">
+                            <div class="card-body text-center mt-4">
+                              <h4 class="card-title">Realiza serviços como:</h4>
+                              <p class="card-text">Pinura de parede por metro quadrado, Levantamento e embuçamento de muro, Construções em geral.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                      <div class="mainflip">
+                        <div class="frontside">
+                          <div class="card">
+                            <div class="card-body text-center">
+                              <p><img class=" img-fluid" src="img/pe2.png" alt="card image"></p>
+                              <h4 class="card-title">Paulo Ricardo</h4>
+                              <p class="card-text">Eletricista profissional</p>
+                              <a href="#" class="btn btn-primary btn-sm">Ver perfil<i class="fa fa-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="backside">
+                          <div class="card">
+                            <div class="card-body text-center mt-4">
+                              <h4 class="card-title">Realiza serviços como:</h4>
+                              <p class="card-text">Conserto e manutenção de fiaçao elétrica, quadros elétricos e etc. </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                      <div class="mainflip">
+                        <div class="frontside">
+                          <div class="card">
+                            <div class="card-body text-center">
+                              <p><img class=" img-fluid" src="img/pe3.jpg" alt="card image"></p>
+                              <h4 class="card-title">Francisco Silva</h4>
+                              <p class="card-text">Encanador</p>
+                              <a href="#" class="btn btn-primary btn-sm">Ver perfil<i class="fa fa-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="backside">
+                          <div class="card">
+                            <div class="card-body text-center mt-4">
+                              <h4 class="card-title">Realiza serviços como:</h4>
+                              <p class="card-text">Manutençao e desentupimento de pia, instalação de rede hidráulica, limpeza de fossas e etc.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                      <div class="mainflip">
+                        <div class="frontside">
+                          <div class="card">
+                            <div class="card-body text-center">
+                              <p><img class=" img-fluid" src="img/pe4.jpeg" alt="card image"></p>
+                              <h4 class="card-title">José Cunha</h4>
+                              <p class="card-text">Pintor profissional e experiente na área de Alvenaria.</p>
+                              <a href="#" class="btn btn-primary btn-sm">Ver perfil<i class="fa fa-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="backside">
+                          <div class="card">
+                            <div class="card-body text-center mt-4">
+                              <h4 class="card-title">Realiza serviços como:</h4>
+                              <p class="card-text">Pinura de parede por metro quadrado, Levantamento e embuçamento de muro, Construções em geral.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                      <div class="mainflip">
+                        <div class="frontside">
+                          <div class="card">
+                            <div class="card-body text-center">
+                              <p><img class=" img-fluid" src="img/pe5.jpg" alt="card image"></p>
+                              <h4 class="card-title">Davi Souza</h4>
+                              <p class="card-text">Eletricista profissional</p>
+                              <a href="#" class="btn btn-primary btn-sm">Ver perfil<i class="fa fa-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="backside">
+                          <div class="card">
+                            <div class="card-body text-center mt-4">
+                              <h4 class="card-title">Realiza serviços como:</h4>
+                              <p class="card-text">Conserto e manutenção de fiaçao elétrica, quadros elétricos e etc.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                      <div class="mainflip">
+                        <div class="frontside">
+                          <div class="card">
+                            <div class="card-body text-center">
+                              <p><img class=" img-fluid" src="img/pe6.jpg" alt="card image"></p>
+                              <h4 class="card-title">Fernando Augusto</h4>
+                              <p class="card-text">Encanador</p>
+                              <a href="#" class="btn btn-primary btn-sm">Ver perfil<i class="fa fa-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="backside">
+                          <div class="card">
+                            <div class="card-body text-center mt-4">
+                              <h4 class="card-title">Realiza serviços como:</h4>
+                              <p class="card-text">Manutençao e desentupimento de pia, instalação de rede hidráulica, limpeza de fossas e etc.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </section>
+           </div>   
+              
+            <div class="tab-pane fade" id="gastos" role="tabpanel" aria-labelledby="gastos-tab">
+              <div class="container-fluid">  
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">N.º</th>
+                    <th scope="col">Prestador de serviço</th>
+                    <th scope="col">Serviço</th>
+                    <th scope="col">Gasto</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Paulo Pedroso</td>
+                    <td>Pintura de parede</td>
+                    <td>R$120,00</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Gustavo Ribeiro</td>
+                    <td>Limpeza de freezer</td>
+                    <td>R$100,00</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Pedro Santos</td>
+                    <td>Desentupimento de pia</td>
+                    <td>R$50,00</td>
+                    
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </form>           
+  </div>
+  
+
+
+  <br><br><br><br><br>    
+
+  <!-- Footer -->
+  <div class="rodape">
+    <div style="background-color:#0c3d5e; padding:40px 0 color:#fff;">
+      <footer class="page-footer font-small ">
+
+        <div class="container">
+
+          <!-- Grid row-->
+          <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+
+            <!-- Grid column -->
+            <div class="col-md-2 mb-3">
+              <h6 class="text-uppercase font-weight-bold">
+                <a href="index.html.html">
+                 <span style="color: white">Início</span>
+                 
+               </a>
+             </h6>
+           </div>
+           <li class="footer-menu-divider color:aliceblue"></li>
+           <div class="col-md-2 mb-3">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="telaServicos.html">
+                <span style="color: white">Serviços</span>
+              </a>
+            </h6>
+          </div>
+          <li class="footer-menu-divider color: aliceblue"></li>
+          <div class="col-md-2 mb-3">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="#!">
+                <span style="color: white">Sobre o Conserta Aqui</span>
+              </a>
+            </h6>
+          </div>
+          <li class="footer-menu-divider color:aliceblue"></li>
+          <div class="col-md-2 mb-3">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="termosdeuso.html">
+               <span style="color: white"> Termos de uso</span>
+             </a>
+           </h6>
+         </div>
+
+       </div>
+       <!-- Grid row-->
+       
+       <hr class="rgba-white-light" style="margin: 0 20%;">
+       
+     </div>
+
+     <!-- Copyright -->
+     <div class="footer-copyright text-center py-3"><span style="color: white">© 2020 Copyright</span>
+     </div>
+
+   </footer>
+        
+        <div class="modal fade" id=myModal2 data-backdrop="static">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #0c3d5e;">
+                    <h5 style="color: white;">Alterar senha</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true" style="color: white;">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="justify-content-start">                                            
+                        <form>
+                            <div class="form-group">
+                            <label for="senhaAtual">Senha atual:</label>
+                            <input type="password" class="form-control" id="senhaAtual">  
+                            </div>
+                            
+                             <div class="form-group">
+                                <label for="inputDescricao">Nova senha:</label>
+                                <input type="password" class="form-control" id="senhaNova">  
+                              </div>
+                            
+                            <div class="form-group">
+                                <label for="inputDescricao">Confirme a nova senha:</label>
+                                <input type="password" class="form-control" id="senhaNovaConfirm">  
+                              </div>
+                                                                   
+                        </form>
+                        <div class="justify-content-end">
+                                <button class="btn btn-outline" style="background: #e86c29;" id="salvarSenha">Alterar</button>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>    
+    </div>
+ </div>
+</div>
+
+
+</body>
+</html>
