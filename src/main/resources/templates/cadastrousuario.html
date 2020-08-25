@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html xmlns= "http://w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Conserta Aqui | cadastro</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link type="text/css" href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+ 	<script src="/jquery/dist/jquery.min.js"></script>
+ 	<script src="/jquery/dist/popper.min.js"></script>
+ 	<link rel="stylesheet" href="/style1.css">
+	<script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
+	<script type="text/javascript" src="js/jquery.maskedinput-1.1.4.pack.js"/></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>  
+    <script src="js/valida_cpf_cnpj.js"></script>  
+    <script src="js/exemplo_1.js"></script>  
+    <script src="js/exemplo_2.js"></script>       
+    <script src="js/exemplo_3.js"></script>
+    
+<script>
+  function validarSenha(){
+	senha1 = document.regForm.senha1.value
+	senha2 = document.regForm.senha2.value
+	genero = document.regForm.genero.value
+	tipoUsuario = document.regForm.tipoUsuario.value
+	
+	if(senha1 == ""){
+		alert("Preencha o campo senha!")
+	}
+ 
+	if(senha2 == ""){
+		alert("Por favor confirme sua senha!")
+	}
+	
+	if (senha1 != senha2)
+		alert("Atenção! As senhas estão diferentes!")
+    }
+  
+	if(genero == ""){
+		alert("Por favor escolha uma das opções de gênero!")
+	}
+	
+	if(tipoUsuario == ""){
+		alert("Por favor escolha uma das opções de usuário!")
+	}
+  
+  $senha1.required = true;
+  $senha2.required = true;
+  $genero.required = true;
+  $tipoUsuario.required = true;
+</script>
+
+<style>
+ h5 {
+  text-align: justify;
+}
+</style>
+
+</head>
+
+   <style>    
+       * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0c3d5e;
+    }
+    
+    .valido {
+            border: 1px solid green;
+    }
+    .invalido {
+            border: 1px solid red;
+    }
+
+    #regForm {
+      background-color: #ffffff;
+      margin: 100px auto;
+      padding: 40px;
+      width: 70%;
+      min-width: 300px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      border-radius: 5px;
+
+    }
+
+    h1 {
+      color: #0c3d5e;
+      margin-top: -75px;
+      text-align: center;  
+    }
+
+    h4 {
+      color: #0c3d5e;  
+    }
+
+    button {
+      background-color: #e86c29;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 17px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+
+    .brand_logo_container {
+      position: relative;
+      height: 170px;
+      width: 170px;
+      top: -105px;
+      border-radius: 50%;
+      background: #0c3b5a;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .brand_logo {
+      height: 150px;
+      width: 150px;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+   </style>
+
+
+<body>
+
+  <form th:object="${usuarioOB}" th:action="@{/salvarusuario}" th:method="POST" id="regForm" data-toggle="validar" name="regForm" enctype="multipart/form-data">
+    <div class="d-flex justify-content-center">
+      <div class="brand_logo_container">
+        <img src="img/login.png" class="brand_logo" alt="Logo">
+      </div>
+    </div>
+    <h1>Cadastro usuário Conserta Aqui:</h1>
+    <br>
+      <h4>Dados pessoais:</h4> 
+      <hr>
+      
+      <div class="form-group">
+		<input type="file" name="filePerfil" id="filePerfil" lang="pt">
+		<label  for="filePerfil">Selecionar sua foto de perfil</label>
+	 </div>
+      
+      <div class="mb-3">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control shadow" id="nome" th:field="*{nome}" placeholder="Mariana Pereira da Silva" value="" required>
+      </div>
+      <div class="mb-3">
+        <label for="dataNascimento">Data de nascimento</label>
+        <input type="date" class="form-control shadow" id="dataNascimento" th:field="*{dataNascimento}" required>
+      </div>       
+      <div class="mb-3">
+        <label for="genero">Gênero</label>
+        <br>
+        <label class="radio-inline"><input id="genero" value="feminino" th:field="*{genero}" type="radio" name="optradio" required>  Feminino  </label>
+        <label class="radio-inline"><input id="genero" value="masculino" th:field="*{genero}"  type="radio" name="optradio" required>  Masculino  </label>
+        <label class="radio-inline"><input id="genero" value="naobinario" th:field="*{genero}"  type="radio" name="optradio" required>  Não binário  </label>
+        <label class="radio-inline"><input id="genero" value="naoinformado" th:field="*{genero}"  type="radio" name="optradio" required>  Prefiro não informar  </label>                
+      </div>
+           <h4>Contato:</h4>
+      <hr>	
+        <div class="mb-3">
+        <label for="dataNascimento">Email</label>
+        <input type="email" class="form-control shadow" id="email" th:field="*{email}" placeholder="consertaaqui@gmail.com"  name="email" required>
+        </div>
+
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="contato1">Contato 1</label>
+          <input type="text" class="form-control shadow" id="contato1" th:field="*{contato1}"placeholder="Ex: (99) 99999-9999" value="" required>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="contato 2">Contato 2</label>
+          <input type="text" class="form-control shadow" id="contato2" th:field="*{contato2}" placeholder="Ex: (99) 99999-9999" value="" required>
+        </div>
+      </div>
+            <h4>Endereço</h4>
+      <hr>
+      <div class="mb-3">
+        <label for="endereco">Rua</label>
+        <input type="text" class="form-control shadow" id="endereco" th:field="*{rua}" placeholder="Rua dos bobos, nº 0" required>
+      </div>
+
+      <div class="row">                
+        <div class="col-md-6 mb-3">
+          <label for="bairro">Bairro</label>
+          <input type="text" class="form-control shadow" id="bairro" th:field="*{bairro}" placeholder="Cidade Nova 2" required>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="zona">Zona</label>
+          <select class="custom-select d-block w-100 shadow" id="zona" th:field="*{zona}" required>
+           <option value="norte">Norte</option>
+           <option value="leste">Leste</option>
+           <option value="oeste">Oeste</option>
+           <option value="centro-sul">Centro-Sul</option>
+           <option value="centro-oeste">Centro-Oeste</option>
+         </select>                
+       </div>
+     </div>
+         <h4>Dados para login:</h4>
+    <hr>    
+      <div class="mb-3">
+        <label for="genero">Escolha o tipo de usuário que você quer se cadastrar:</label>
+        <br>
+        <label class="radio-inline"><input id="tipousuario" value="prestador" th:field="*{tipoUsuario}" type="radio" name="optradio" required>  Prestador de serviços    </label>
+        <label class="radio-inline"><input id="tipousuario" value="cliente" th:field="*{tipoUsuario}"  type="radio" name="optradio" required>    Cliente  </label>
+      </div>    
+     <div class=" col-md-mb-3">
+      <label for="cpf">CPF</label>
+      <input type="text" class="cpf_cnpj form-control shadow" id="cpf"  th:field="*{id}" placeholder="Ex: 000.000.000-00" value="" name="cpf">
+    </div>
+	
+    <div class="mb-3">
+      <br>
+      <label for="senha">Senha</label>
+      <input type="password" class="form-control shadow" id="senha1" th:field="*{senha}" placeholder="abcd#45kar0" name="senha1">
+    </div>     
+
+  <div class="form-group">	
+    <div class="mb-3">
+      <br>
+      <label for="senha">Confirmação de senha</label>
+      <input type="password" class="form-control shadow" id="senha2" placeholder="abcd#45kar0" name="senha2">
+    </div> 
+    </div>                    
+	
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="checkTermos" data-error="Você deve marcar este campo!" required>
+      <label class="form-check-label" for="checkTermos">Aceito os Termos de Uso</label>
+      <div class="help-block with-errors"></div>
+    </div>
+    <br> 
+  
+  <button data-role="submit" type="submit" onclick="validarSenha()" class="btn btn-perfil btn-lg btn-block">Cadastrar-me!</button>
+ 
+
+</form>
+
+
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#cpf").mask("999.999.999-99");
+	});
+</script>
+   
+<script>
+jQuery(function($){
+$("#rg").mask("9999999-9");
+$("#contato1").mask("(99) 99999-9999");
+$("#contato2").mask("(99) 99999-9999");        
+});
+</script>
+
+
+</body>
+</html>

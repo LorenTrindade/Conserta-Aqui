@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns= "http://w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="/style1.css">
+	<link type="text/css" href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">	
+ 	<script src="/jquery/dist/jquery.min.js"></script>
+ 	<script type="module" src="/popper.js/dist/popper.min.js"></script>
+ 	<script src="/bootstrap/dist/js/bootstrap.min.js"></script>	
+	</head>
+>
+<body>
+
+
+<button onclick="topFunction()" id="myBtn" title="Ir para o topo"><i class="fa fa-arrow-up"></i></button>
+
+  <!-- Primeiro Navbar-->
+  <nav class="navbar navbar-expand-md fixed-top">
+    <a class="navbar-brand" href="#">
+      <img src="img/logo.png" class="img-fluid" alt="Conserta Aqui">
+    </a>
+
+    <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto ">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html.html">Início <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="telaServicos.html">Serviços</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Como funciona?</a>
+        </li>      
+      </ul>
+      <form class="form-inline my-2 my-lg-3">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Digite aqui">
+        </div>
+        <button type="submit" class="btn btnDivulgar"><i class="fa fa-search mr-0" style="color: white;"></i></button>
+      </form>
+    </div>
+  </nav>
+
+  <br><br><br><br><br>
+
+  <section class="content-section">
+    <div class="corpo">
+      <div class="container text-justify">
+        <div class="row">
+          <div class="col-lg-12 ">
+            <h4> Como Funciona? </h4>
+            <hr>
+            <h5><i>Aprenda a navegar por nosso website e conheça o que ele lhe oferece!</i></h5>
+            <br>
+            <h6>Utilize a <b>barra de busca</b> encontrada no início do site para encontrar o que procura.</h6>
+            <img src="img/bpesquisa.png" class="img-fluid">
+            <br><br><br>
+            <h6>Utilize o <b>menu de navegação</b> encontrado na parte superior do Website para
+            acessar rapidamente funcionalidades de seu interesse.</h6>
+            <img src="img/menu.png" class="img-fluid">
+            <br><br><br>
+            <h6>Utilize a <b>barra de busca de cor laranja</b>, encontrada no início do Website para encontrar o os serviços que procura.</h6>
+            <img src="img/blaranja.png" class="img-fluid">
+            <br><br><br>
+            <h6>Na <b>tela de serviços</b>, é possível visualizar todos os serviços.</h6>
+            <img src="img/tservicos.png" class="img-fluid">
+            <br><br><br>
+            <h6>Utilize a <b>barra de pesquisa</b> encontrada na parte de Serviços do Website para pesquisar por serviços ou prestadores de serviço de seu interesse.</h6>
+            <img src="img/bservicos.png" class="img-fluid">
+            <br><br><br>
+            <h6>Utilize a opção <b>Solicitar Serviço</b> para fazer uma solicitação do serviço desejado de determinado prestador de serviço.</h6>
+            <img src="img/solicitar.png" class="img-fluid">
+            <br><br><br>
+            <h6>Utilize essas opções encontradas na tela principal do site para fazer seu <b>cadastro</b> como cliente ou prestador de serviço.</h6>
+            <img src="img/opcoesC.png" class="img-fluid">
+            <br><br><br>
+            <h6>Utilize pelo menu principal a <b>função entrar</b>, para fazer login no site.</h6>
+            <img src="img/entrar.png" class="img-fluid">
+            <br><br>
+            <img src="img/loginf.png" class="img-fluid">
+            <br><br><br>
+            <h6>Na tela <b>minha conta</b> é permitido a visualização dos dados pessoais e funções como : alterar e excluir informação.</h6>
+            <img src="img/perfilp.jpeg" class="img-fluid">
+            <br><br>
+            <img src="img/perfilp2.jpeg" class="img-fluid">
+            <br><br><br>
+            <h6>No <b>perfil do prestador</b>, é possível visualizar o estado de todos serviços. Tais como: solicitados, contratados e realizados</h6>
+            <img src="img/perfilp3.jpeg" class="img-fluid">
+            <br><br><br>
+            <h6>No <b>canto superior direito do perfil do prestador (na tela de serviços divulgados)</b>, é disponibilizado o botão para inserir novo serviço.</h6>
+            <img src="img/novoservico.jpeg" class="img-fluid">
+            <br><br><br>
+            <h6>No <b>perfil do cliente</b> é possível visualizar todos os <b>serviços</b> que ele <b>contratou</b>, tal como o avaliar.</h6>
+            <img src="img/perfilc.jpeg" class="img-fluid">
+            <br><br><br>
+            <h6>E todos os <b>serviços</b> que foram solicitados e/ou que ainda estão em <b>modo de espera</b>.</h6>
+            <img src="img/perfilc2.jpeg" class="img-fluid">
+            <br><br><br>
+            <h6>Utilize a opção <b>Calculadora de  materiais</b> para  obter  
+            os cálculos necessários para sua obra.</h6>
+            <img src="img/calculadora.png" class="img-fluid">
+            <br><br><br>
+            <h6>Utilize o <b>rodapé</b> encontrado na parte inferior do Website para acessar rapidamente algumas funcionalidades e conhecer mais sobre o Conserta Aqui.</h6>
+            <img src="img/rodape.png" class="img-fluid">
+            <br><br><br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <br><br><br><br><br>    
+  
+  <div class="mt-5 pt-5 pb-5 footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-xs-12 about-company">
+          <h2>Sobre</h2>
+          <p class="pr-5 text-white-50">Site destinado a trabalhadores do  setor de construção civil e pequenos reparos em residências, prédios. O site disponibiliza  a  oportunidade aos  servidores a divulgar   seus  serviços através  de  uma  ferramenta online de  forma prática,simples e gratuita. Além de ser  ideal para clientes, que desejam pesquisar preços  e  ter  qualidade em sua obra requerida.</p>
+        </div>
+        <div class="col-lg-3 col-xs-12 links">
+          <h4 class="mt-lg-0 mt-sm-3">Links</h4>
+          <ul class="m-0 p-0">
+            <li><a href="#">Como funciona?</a></li>                     
+            <li><a href="#">Serviços</a></li>
+            <li><a href="#">Desativar conta</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-xs-12 location"><h4 class="mt-lg-0 mt-sm-4">Redes Sociais</h4><p>Facebook<br>Instagram<br>Linkedin</p>                                    
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col copyright">
+          <p class=""><small class="text-white-50">© 2020 Conserta Aqui</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+
+
+</body>
+</html>

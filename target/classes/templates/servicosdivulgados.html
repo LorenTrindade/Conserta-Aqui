@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xmlns= "http://w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/style1.css">
+	<link type="text/css" href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">	
+ 	<script src="/jquery/dist/jquery.min.js"></script>
+ 	<script type="module" src="/popper.js/dist/popper.min.js"></script>
+ 	<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+		<style>
+     .container {
+       padding: 2rem 0rem;
+     }
+     .table .thead-light th {
+       color: white;
+       background-color: #0c3d5e;
+       border-color: #092c44;
+    </style>
+</head>
+
+<body>
+
+ <div th:insert="fragments.html :: navbarperfil"></div>
+ 
+	
+	 <div class="modal fade" id=myModal data-backdrop="static">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header" style="background: #0c3d5e;">
+          <h5 style="color: white;">Inserir anúncio</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" style="color: white;">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">        
+          <div class="justify-content-start">                                                    
+            <form th:object="${servicoOB}" th:action="@{/divulgarservico}" th:method="POST" enctype="multipart/form-data" >                                             
+           
+              <div class="form-group">
+				  <input type="file" name="fileServico" id="fileServico" lang="pt">
+				  <label  for="fileServico">Selecionar arquivo</label>
+			 </div>		
+              
+              <div class="form-group">            
+                <label for="titulotop">Título:</label>
+                <input class="form-control" id="titulotop" th:field="*{titulo}">
+              </div> 
+              
+              <div class="form-group">
+                <label for="descricao">Descrição:</label>
+                <textarea class="form-control" id="descricao" th:field="*{descricao}" rows="2"></textarea>
+              </div>
+              
+              <div class="form-group">
+                <label for="coategoria">Categoria:</label>
+                <select class="custom-select d-block w-100 shadow" id="categoria" th:field="*{categoria}">
+				    <option value="alvenaria">Alvenaria</option>
+				    <option value="eletrica">Elétrica</option>
+				    <option value="hidraulica">Hidraúlica</option>
+				    <option value="refrigeracao">Refrigeração</option>
+				    <option value="reparos">Reparos</option>
+				    <option value="pintura">Pintura</option>
+				</select>
+              </div>
+              
+              <div class="form-group">
+                <label for="comboZona">Zona:</label>
+                <select class="custom-select d-block w-100 shadow" id="zona" th:field="*{zona}">
+				    <option value="norte">Norte</option>
+				    <option value="leste">Leste</option>
+				    <option value="oeste">Oeste</option>
+				    <option value="centro-sul">Centro-Sul</option>
+				    <option value="centro-oeste">Centro-Oeste</option>
+				</select>
+              </div>
+              
+              <div class="form-group">
+                <label for="preco">Preço mínimo(opcional):</label>
+                <input class="form-control" id="preco" th:field="*{preco}">
+              </div>               
+                                       
+              <div class="justify-content-end">             	              
+              <button class="btn btn-outline" style="background: #e86c29;" id="btnDivulgar" type="submit">Divulgar!</button>
+              </div>                           
+            </form>                     
+          </div>
+        </div>
+        <div class="modal-footer"></div>
+      </div>
+    </div>    
+  </div> 
+
+  <br><br><br>
+
+<div th:insert="fragments.html :: sidebarprestador"></div>
+  <div id="main">
+    <div class="container-fluid">               
+      <div class="float-right">    
+    <br>
+    	<button class="btn btn-light" data-toggle="modal" style="background-color:#0c3d5e; color: white;" data-target="#myModal"><span><i class="material-icons">add_circle</i><span class="icon-text">Novo servico</span>
+    	</div>
+    	<br>
+      <h3>Serviços divulgados</h3>
+    <h6>Serviços que foram divulgados para serem contratados</h6>
+    <br>                
+                  <label><h6>Pesquisa por nome</h6></label>
+                  <div class="input-group">
+                    <input type="text" class="form-control shadow mb-4" id="myInput" placeholder="Pesquise aqui">
+                    <div class="input-group-btn">
+                      <button class="btn btnPesquisarS" type="submit"><i class="fa fa-search"></i></button>
+                    </div>
+                  </div>                                
+              <br>      
+              <div th:each="e : ${erros}">
+				<span th:text="${e}" style="color:red"></span>  	
+			</div>
+              
+       <div class="table-responsive">
+				  <table class="table table-hover">
+				    <thead>
+					    <tr class="text-center">
+					      <th scope="co-lg">Foto</th>
+					      <th scope="co-lg">ID</th>
+					      <th scope="co-lg">Título</th>					      
+					      <th scope="co-lg">Categoria</th>
+					      <th scope="co-lg">Zona</th>					     
+					      <th scope="co-lg">Preço</th>					      
+					      <th scope="co-lg"></th>
+				
+					      					      
+					    </tr>
+					  </thead>
+					  <tbody class="text-center" id="myTable">
+					    <tr th:each="s : ${servicos}">
+					    	<td>
+					    		<img alt="Image" height="100px" width="140px"  onerror = 'this.src = "/img/default-img.jpg"' th:src="|/imagem/${s.id}|">
+					    	</td>
+					    	<td th:text="${s.id}" style="vertical-align:middle"></td>
+						    <td th:text="${s.titulo}" style="vertical-align:middle"></td>
+						    <td th:text="${s.categoria}" style="vertical-align:middle"></td>
+						    <td th:text="${s.zona}" style="vertical-align:middle"></td>
+						    <td th:text="${s.preco}" style="vertical-align:middle"></td>						    						   
+						    <td class="td-number">
+						    <a th:href="@{/alterarservico/{servicoid}(servicoid=${s.id})}" class="btn btn-outline-primary"><i class="fa fa-pencil" aria-hiden="true"></i></a>						  				    						    						   
+						    <a th:href="@{/deletarservico/{servicoid}(servicoid=${s.id})}" class="btn btn-outline-danger"><i class="fa fa-trash" aria-hiden="true"></i></a>							    				    						  
+						    </td>						    						    
+					    </tr>
+					    </tbody>					   
+				  </table>
+				</div> 
+      <br><br><br><br><br>
+    </div>    
+  </div>  
+
+  <script>
+    var mini = true;
+
+    function toggleSidebar() {
+      if (mini) {
+        console.log("opening sidebar");
+        document.getElementById("mySidebar").style.width = "300px";
+        document.getElementById("main").style.marginLeft = "300px";
+        this.mini = false;
+      } else {
+        console.log("closing sidebar");
+        document.getElementById("mySidebar").style.width = "86px";
+        document.getElementById("main").style.marginLeft = "86px";
+        this.mini = true;
+      }
+    }
+
+  </script>
+  
+  <script>
+$ (document) .ready (function () {
+  $ ("img"). bind ("erro", function () {
+    // Defina a imagem padrão
+    $ (this) .attr ("src", "/img/default-img.jpg");
+  });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+</body>
+</html>

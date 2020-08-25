@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html xmlns= "http://w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="/style1.css">
+	<link type="text/css" href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">	
+ 	<script src="/jquery/dist/jquery.min.js"></script>
+ 	<script type="module" src="/popper.js/dist/popper.min.js"></script>
+ 	<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>	
+</head>
+
+<body>
+
+	<div th:insert="fragments.html :: navbarperfil"></div>	
+  	<br><br><br>
+	
+	<button onclick="topFunction()" id="myBtn" title="Ir para o topo"><i class="fa fa-arrow-up"></i></button>
+	
+		<div id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">    	    		
+    		<a th:href="@{/meudadosc}"><span><i class="material-icons">home</i></span><span class="icon-text">Serviços divulgados</span></a><br>    		    		
+  		</div>
+
+<div id="main">
+
+	<div class="container-fluid">
+		<div class="row justify-content-md-center">
+			<div class="text-center col col-lg-2">
+				<br>
+				<img alt="Image" height="200px" width="200px" class="avatar2" onerror = 'this.src = "/img/semperfil.png"' th:src="|/imagemusuario/${prestadorOB.id}|">			
+			</div>
+		</div>
+		<br><br>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="table-responsive">
+					<table class="table table-hover ">
+						<tbody>
+							<tr >
+								<th scope="co-lg">Nome Completo</th>								
+								<td th:text="${prestadorOB.nome}"></td>
+								
+							</tr>
+							<tr>
+								<th scope="co-lg">Data de Nascimento</th>
+								<td th:text="${prestadorOB.dataNascimento}" style="vertical-align:middle"></td>
+							</tr>
+							<tr>
+								<th scope="co-lg">Genero</th>
+								<td th:text="${prestadorOB.genero}" style="vertical-align:middle"></td>
+							</tr>
+							<tr>
+								<th scope="co-lg">Email</th>
+								<td th:text="${prestadorOB.email}" style="vertical-align:middle"></td>
+							</tr>
+							<tr>
+								<th scope="co-lg">Contato 1</th> 
+								<td th:text="${prestadorOB.contato1}" style="vertical-align:middle"></td>
+							</tr>
+
+							<tr>
+								<th scope="co-lg">Contato 2</th>  
+								<td th:text="${prestadorOB.contato2}" style="vertical-align:middle"></td>        
+							</tr>
+
+							<tr>
+								<th scope="co-lg">Rua</th>  
+								<td th:text="${prestadorOB.rua}" style="vertical-align:middle"></td>        
+							</tr>
+
+							<tr>
+								<th scope="co-lg">Bairro</th>  
+								<td th:text="${prestadorOB.bairro}" style="vertical-align:middle"></td>        
+							</tr>
+
+							<tr>
+								<th scope="co-lg">Zona</th>  
+								<td th:text="${prestadorOB.zona}" style="vertical-align:middle"></td>        
+							</tr> 		    						   
+
+						</tbody>					   
+					</table>
+				</div>
+				</div>
+				<div class="col-md-6">
+					<div class="card">
+						<div class="card-body">
+							<canvas id="bar-chart"></canvas>
+						</div>
+					</div>
+				</div>			
+				
+				
+		<div class="row">
+			<div th:each=" s: ${servicos}" class="col-sm-4">
+				<div class="card mb-4" style="width: 18rem;">
+  					<img class="card-img-top img-responsive" alt="Image" height="190px" width="210px"  onerror = 'this.src = "img/default-img.jpg"' th:src="|/imagem/${s.id}|">  				
+  				<ul class="list-group list-group-flush">
+			    <li class="list-group-item"><h1 class="card-title" th:text="${s.titulo}"></h1></li>
+			    <li class="list-group-item"><p class="card-title" th:text=" 'Zona: ' +${s.zona}"></p></li>
+			    <li class="list-group-item"><p class="card-title" th:text="  'Valor minímo: ' +${s.preco}"></p></li>
+			    <li class="list-group-item"><p class="card-title" th:text="  'Anunciado por: ' +${s.usuario.nome}"></p></li>
+			  	</ul>
+  				<div class="card-body">
+				    <a th:href="@{/solicitarservico/{idp}(idp=${s.id})}" class="card-link">Solicitar serviço</a>
+				    <a href="#" class="card-link">Ver perfil +</a>
+  				</div>
+			</div>
+		</div>
+	</div>
+</div>
+				
+			</div>
+		</div>
+		
+		<br><br><br><br>
+
+<script th:inline="javascript">
+/*<![CDATA[*/
+  var ctx = document.getElementById("bar-chart");
+
+  var chart = ctx.getContext('2d');
+
+  var e5=[[${cinco}]];
+  var e4=[[${quatro}]];
+  var e3=[[${tres}]];
+  var e2=[[${dois}]];
+  var e1=[[${um}]];
+  
+  var myChart = new Chart(ctx, {
+    type: 'horizontalBar',
+    data: {
+      labels: ['5 estrelas', '4 estrelas', '3 estrelas', '2 estrelas', '1 estrela'],
+      datasets: [{
+        label: 'Quantidade de estrelas', 
+        data: [e5,e4,e3,e2,e1],
+        backgroundColor: [
+        'rgba(0,42,142,0.85)',
+        'rgba(231,132,0,0.85)',
+        'rgba(0, 42, 142, 0.85)',
+        'rgba(231,132,0,0.85)',
+        'rgba(0, 42, 142, 0.85)'
+        ],
+        borderColor: [
+        'rgba(0,42,142,1)',
+        'rgba(231,132,0,1)',
+        'rgba(0,42,142,1)',
+        'rgba(231,132,0,1)',
+        'rgba(0,42,142,1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        fontSize: 20,
+        text: "Média das avaliações recebidas por seus clientes (2020)"
+      },
+      labels: {
+        fontStyle: "bold"
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+
+  /*]]>*/
+</script>   
+  
+  <script>
+    var mini = true;
+
+    function toggleSidebar() {
+      if (mini) {
+        console.log("opening sidebar");
+        document.getElementById("mySidebar").style.width = "300px";
+        document.getElementById("main").style.marginLeft = "300px";
+        this.mini = false;
+      } else {
+        console.log("closing sidebar");
+        document.getElementById("mySidebar").style.width = "86px";
+        document.getElementById("main").style.marginLeft = "86px";
+        this.mini = true;
+      }
+    }
+
+  </script>
+
+		
+<script>
+			var mini = true;
+
+			function toggleSidebar() {
+				if (mini) {
+					console.log("opening sidebar");
+					document.getElementById("mySidebar").style.width = "300px";
+					document.getElementById("main").style.marginLeft = "300px";
+					this.mini = false;
+				} else {
+					console.log("closing sidebar");
+					document.getElementById("mySidebar").style.width = "86px";
+					document.getElementById("main").style.marginLeft = "86px";
+					this.mini = true;
+				}
+			}
+
+		</script>
+		
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+		mybutton.style.display = "block";
+	} else {
+		mybutton.style.display = "none";
+	}
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+	document.body.scrollTop = 0;
+	document.documentElement.scrollTop = 0;
+}
+</script>
+
+</body>
+</html>

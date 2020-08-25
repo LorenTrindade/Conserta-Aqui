@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html xmlns= "http://w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="/style1.css">
+	<link type="text/css" href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">	
+ 	<script src="/jquery/dist/jquery.min.js"></script>
+ 	<script type="module" src="/popper.js/dist/popper.min.js"></script>
+ 	<script src="/bootstrap/dist/js/bootstrap.min.js"></script>	
+</head>
+
+<body>
+	
+	<button onclick="topFunction()" id="myBtn" title="Ir para o topo"><i class="fa fa-arrow-up"></i></button>
+
+  
+  <!-- Primeiro Navbar-->
+  <nav class="navbar navbar-expand-md fixed-top shadow">
+    <a class="navbar-brand" href="#">
+      <img src="img/logo.png" class="img-fluid" alt="Conserta Aqui">
+    </a>
+
+    <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Início <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/servicos">Serviços</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Entrar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/comofunciona">Como funciona?</a>
+        </li>
+                     
+      </ul>
+      
+      <form class="form-inline my-2 my-lg-3">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Digite aqui">
+        </div>
+        <button type="submit" class="btn btnDivulgar"><i class="fa fa-search mr-0" style="color: white;"></i></button>
+      </form>   
+    </div>
+  </nav>
+
+  <br><br><br><br><br>
+  <!-- segundo navbar -->
+  <div class="navServicos">  
+    <ul class="nav nav-pills nav-fill">
+      <li class="nav-item">
+        <a class="nav-link " href="/alvenaria">Alvenaria</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/eletrica">Elétrica</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/hidraulica">Hidráulica</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/pintura">Pintura</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/refrigeracao">Refrigeração</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/reparos">Reparos</a>
+      </li>
+      
+    </ul>
+  </div>
+
+  <!-- carrossel-->
+  <div id="carrossel" class="carousel slide carousel-fade" data-ride="carousel">
+
+    <!-- Indicadores -->
+    <ol class="carousel-indicators">
+      <li data-target="#carrossel" data-slide-to="0" class="active"></li>
+      <li data-target="#carrossel" data-slide-to="1"></li>
+      <li data-target="#carrossel" data-slide-to="2"></li>
+      <li data-target="#carrossel" data-slide-to="3"></li>    
+    </ol>
+
+    <!-- "apresentação de slides"-->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="img/p1.png" class="d-block img-fluid">
+      </div>
+      <div class="carousel-item">
+        <img src="img/p2.png" class="d-block img-fluid">
+      </div>
+      <div class="carousel-item">
+        <img src="img/p3.png" class="d-block img-fluid">
+      </div>
+      <div class="carousel-item">
+        <img src="img/p4.png" class="d-block img-fluid">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#carrossel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+      <span class="sr-only">Anterior</span>
+    </a>
+    <a class="carousel-control-next" href="#carrossel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+      <span class="sr-only">Proximo</span>
+    </a>
+
+  </div>
+
+  <br> <br> <br> <br>
+
+  <!-- Flip Box cliente e servidor-->
+    
+  <div class="container-fluid">
+    <div class="row">    
+      <div class="col">  
+         <div class="square-flip">
+          <div class='square' data-image="img/servidorimg.png">
+           <div class="square-container">
+            <div class="align-center"><img src="http://titanicthemes.com/files/flipbox/kallyas2.png" class="boxshadow" alt=""></div>
+            <div class="faixalaranja2"><h2 class="textshadow">Prestador de Serviço</h2></div>
+           </div>
+          <div class="flip-overlay"></div>
+          </div>
+        <div class='square2' data-image="/img/fundo.png">
+         <div class="square-container2">
+          <div class="align-center"></div>
+          <h2>Se você deseja criar um perfil e oferecer seus serviços</h2>
+          <a href="/cadastrousuario" class="boxshadow divisao-button">CLIQUE AQUI!</a>
+         </div>
+         <div class="flip-overlay"></div>
+        </div>
+         </div>
+    
+
+  <div class="col">  
+   <div class="square-flip">
+    <div class='square' data-image="img/clienteimg.png">
+     <div class="square-container">
+      <div class="align-center"><img src="http://titanicthemes.com/files/flipbox/kallyas.png" class="boxshadow" alt=""></div>
+      <div class="faixalaranja2"><h2 class="textshadow">Cliente</h2></div>
+    </div>
+    <div class="flip-overlay"></div>
+  </div>
+  <div class='square2' data-image="/img/fundo.png">
+   <div class="square-container2">
+    <div class="align-center"></div>
+    <h2>Se você deseja encontrar serviços e fazer orçamentos</h2>
+    <a href="/cadastrousuario" class="boxshadow divisao-button">CLIQUE AQUI!</a>
+  </div>
+  <div class="flip-overlay"></div>
+</div>
+</div>
+</div>
+
+<div class="clearfix"></div>
+</div>  
+</div>
+</div>
+
+<script>
+  jQuery(document).ready(function($) {
+
+  //Count nr. of square classes
+  var countSquare = $('.square').length;
+
+  //For each Square found add BG image
+  for (i = 0; i < countSquare; i++) {
+    var firstImage = $('.square').eq([i]);
+    var secondImage = $('.square2').eq([i]);
+
+    var getImage = firstImage.attr('data-image');
+    var getImage2 = secondImage.attr('data-image');
+
+    firstImage.css('background-image', 'url(' + getImage + ')');
+    secondImage.css('background-image', 'url(' + getImage2 + ')');
+  }
+
+});
+</script>
+
+
+<br> <br> <br> <br> <br> <br>
+<div class="faixalaranja">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <h3 class="text-center">Serviços Conserta Aqui mais procurados</h3>
+    </div>
+  </div>
+</div>
+
+<br>  <br> <br>
+
+<div class="container">
+		<div class="row">
+			<div th:each=" e: ${errros}" class="col-sm-4">
+				<div class="card mb-4" style="width: 18rem;">
+  					    <span th:text="${ e}" style="color:red"></span>  
+  					
+  				</div>
+			</div>
+		</div>
+	</div>
+ 
+
+<!-- Cards com os melhores serviços -->          
+
+
+	<div class="container">
+		<div class="row">
+			<div th:each=" s: ${servicos}" class="col-sm-4">
+				<div class="card mb-4" style="width: 18rem;">
+  					<img class="card-img-top img-responsive" alt="Image" height="190px" width="210px"  onerror = 'this.src = "img/default-img.jpg"' th:src="|/imagem/${s.id}|">  				
+  				<ul class="list-group list-group-flush">
+			    <li class="list-group-item"><h1 class="card-title" th:text="${s.titulo}"></h1></li>
+			    <li class="list-group-item"><p class="card-title" th:text=" 'Zona: ' +${s.zona}"></p></li>
+			    <li class="list-group-item"><p class="card-title" th:text="  'Valor minímo: ' +${s.preco}"></p></li>
+			    <li class="list-group-item"><p class="card-title" th:text="  'Anunciado por: ' +${s.usuario.nome}"></p></li>
+			  	</ul>
+  				<div class="card-body">
+				    <a th:href="@{/solicitarservico/{idp}(idp=${s.id})}" class="card-link">Solicitar serviço</a>
+				    <a href="#" class="card-link">Ver perfil +</a>
+  				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<br> <br> <br>
+
+<!-- Serviços Conserta Aqui-->
+
+
+<section class="content-section-b">
+
+  <div class="container">
+    <div class="titulo">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h1>Nossos serviços</h1>
+          <br /><br />
+        </div>
+      </div>
+    </div>
+
+    <div class="servicostitulo">  
+      <div class="row">
+        <div class="col-md-4 box-categoria-home margem-abaixo">
+          <div class="row center-row">
+            <figure class="col-md-4 center-vertical text-center">
+              <a href="telaAlvenaria.html"><img src="img/alvenariaicon.png" width="120px" height="120px" alt="Serviços Alvenaria" class="img-responsive" /></a>
+            </figure>
+            <div class="col-md-8 center-vertical">
+              <h3>
+                <a>
+                  <span style="color:#0c3d5e">Alvenaria</span>
+                </a>
+              </h3>
+              <p class="">Reparos, reformas, troca de pisos, retoque de parede, balcão, muros, entre outros serviços.</p>
+              <p><a href="/alvenaria">Ver todos&nbsp;<i class="fa fa-arrow-right"></i></a></p>
+            </div>
+          </div>        
+        </div>
+
+        <div class="col-md-4 box-categoria-home margem-abaixo">
+          <div class="row center-row">
+            <figure class="col-md-4 center-vertical text-center">
+              <a href="telaHidraulica.html"><img src="img/hidraulicaicon.png" alt="Serviços Hidráulica" class="img-responsive" /></a>
+            </figure>
+            <div class="col-md-8 center-vertical">
+              <h3>
+                <a>
+                  <span style="color:#0c3d5e">Hidráulica</span>
+                </a>
+              </h3>
+              <p class="">Sifões, troca de torneiras, canos, instalação de válvulas hidráulica, entre outros serviços.</p>
+              <p>
+                <a href="/hidraulica">Ver todos&nbsp;<i class="fa fa-arrow-right"></i></a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 box-categoria-home margem-abaixo">
+            <div class="row center-row">
+              <figure class="col-md-4 center-vertical text-center">
+                <a href="telaEletrica.html"><img src="img/eletricaicon.png" width="120px" height="120px" alt="Serviços Elétrica" class="img-responsive" /></a>
+              </figure>
+              <div class="col-md-8 center-vertical">
+                <h3>
+                  <a>
+                    <span style="color: #0c3d4e">Elétrica</span>
+                  </a>
+                </h3>
+                <p class="">Lâmpadas, revisão elétrica, troca de tomadas, chuveiros, entre outros serviços.</p>
+                <p><a href="/eletrica">Ver todos&nbsp;<i class="fa fa-arrow-right"></i></a></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-4 box-categoria-home margem-abaixo">
+            <div class="row center-row">
+              <figure class="col-md-4 center-vertical text-center">
+                <a href="telaPintura.html"><img src="img/pinturaicon.png"alt="Serviços Pintura" class="img-responsive" /></a>
+              </figure>
+              <div class="col-md-8 center-vertical">
+                <h3>
+                  <a>
+                    <span style="color:#0c3d5e">Pintura</span>
+                  </a>
+                </h3>
+                <p class="">Pinturas novas e repinturas de ambientes internos e externos, pintura de portões, entre outros serviços.</p>
+                <p><a href="/pintura">Ver todos&nbsp;<i class="fa fa-arrow-right"></i></a></p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4 box-categoria-home margem-abaixo">
+            <div class="row center-row">
+              <figure class="col-md-4 center-vertical text-center">
+                <a href="telaRefrigeracao.html"><img src="img/refrigeracaoicon.png" width="120px" height="120px" alt="Instalação e manutenção de eletrodomésticos" class="img-responsive" /></a>
+              </figure>
+              <div class="col-md-8 center-vertical">
+                <h3>
+                  <a>
+                    <span style="color: #0c3d5e">Refrigeração</span>
+                  </a>
+                </h3>
+                <p class="">Instalação e manutenção em refrigeração: split, centrais de ar, bebedouro, geladeira, freezer, entre outros.</p>
+                <p><a href="/refrigeracao">Ver todos&nbsp;<i class="fa fa-arrow-right"></i></a></p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4 box-categoria-home margem-abaixo">
+            <div class="row center-row">
+              <figure class="col-md-4 center-vertical text-center">
+                <a href="telaReparos.html"><img src="img/reparosicon.png" alt="Pequenos Reparos" class="img-responsive" /></a>
+              </figure>
+              <div class="col-md-8 center-vertical">
+                <h3>
+                  <a>
+                    <span style="color: #0c3d5e">Reparos</span>
+                  </a>
+                </h3>
+                <p class="">Instalações de itens práticos em imóveis: varais, suportes para TV, gabinetes, quadros, entre outros.</p>
+                <p><a href="/reparos">Ver todos&nbsp;<i class="fa fa-arrow-right"></i></a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <br> <br> <br> <br> <br>
+
+
+  <section class="content-section-b">
+
+    <div class="container text-center">
+
+      <div class="titulo">
+        <div class="row">
+          <div class="col-lg-12 ">
+            <h1>Nos preocupamos com a sua segurança</h1>
+          </div>
+        </div>
+      </div>
+
+      <br> <br> <br>
+      <div class="textcolor">
+       <div class="row justify-content-center">
+        <div class="col-md-3">
+          <h5>
+            <img src="img/id.png" alt="Identidade checada" class="img-responsive"/> <br /><br />
+            <span style="color: #e86c29">Identidade Checada</span>
+          </h5>
+        </div>
+
+        <div class="col-md-3">
+          <h5>
+            <img src="img/checklist.png" alt="Histórico verificado" class="img-responsive"/> <br /><br />
+            <span style="color: #e86c29">Histórico verificado e cartas de recomendação</span>
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<br> <br> <br> <br> <br>
+    
+<div class="mt-5 pt-5 pb-5 footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-xs-12 about-company">
+        <h2>Sobre</h2>
+        <p class="pr-5 text-white-50">Site destinado a trabalhadores do  setor de construção civil e pequenos reparos em residências, prédios. O site disponibiliza  a  oportunidade aos  servidores a divulgar   seus  serviços através  de  uma  ferramenta online de  forma prática,simples e gratuita. Além de ser  ideal para clientes, que desejam pesquisar preços  e  ter  qualidade em sua obra requerida.</p>
+      </div>
+      <div class="col-lg-3 col-xs-12 links">
+        <h4 class="mt-lg-0 mt-sm-3">Links</h4>
+        <ul class="m-0 p-0">
+          <li><a href="#">Como funciona?</a></li>
+          <li><a href="/termosdeuso">Termos de uso</a></li>
+          <li><a href="/servicos">Serviços</a></li>
+          <li><a href="#">Desativar conta</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-xs-12 location"><h4 class="mt-lg-0 mt-sm-4">Redes Sociais</h4><p>Facebook<br>Instagram<br>Linkedin</p>                                    
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col copyright">
+        <p class=""><small class="text-white-50">© 2020 Conserta Aqui</small></p>
+      </div>
+    </div> 
+  </div>
+</div>
+    
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+<script>
+$ (document) .ready (function () {
+  $ ("img"). bind ("erro", function () {
+    // Defina a imagem padrão
+    $ (this) .attr ("src", "img/default-img.jpg");
+  });
+});
+</script>
+
+<script>
+$('.close-icon').on('click',function() {
+	  $(this).closest('.card').fadeOut();
+	})
+</script>
+
+</body>
+</html>

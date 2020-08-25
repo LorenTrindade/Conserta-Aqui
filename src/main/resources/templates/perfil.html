@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xmlns= "http://w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="/style1.css">
+	<link type="text/css" href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">	
+ 	<script src="/jquery/dist/jquery.min.js"></script>
+ 	<script type="module" src="/popper.js/dist/popper.min.js"></script>
+ 	<script src="/bootstrap/dist/js/bootstrap.min.js"></script>	
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+</head>
+
+<style>
+    body{
+     font-family: "Lato", sans-serif;
+   }
+</style>
+ 
+<body>
+
+   <div th:insert="fragments.html :: navbarperfil"></div>
+  <br><br><br>
+     
+   	<div th:insert="fragments.html :: sidebarprestador"></div>
+   	
+  		
+<div id="main">
+    <div class="container-fluid">
+    <br>
+      <h2><p th:text="'Bem-vindo (a)' + ' '+  ${prestadorOB.nome}"></p></h2>  
+      <BR>
+    
+    <div class="content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+
+      <!-- Icon Cards-->
+        <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2 mt-4">
+            <div class="inforide">
+              <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-4 rideone">
+                	<h1><p th:text="${qtdSolicitacao}"></p></h1>
+                </div>
+                <div class="col-lg-9 col-md-8 col-sm-8 col-8 fontsty">                
+                    <h2>Solicitações</h2>
+                </div>
+              </div>            
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2 mt-4">
+            <div class="inforide">
+              <div class="row">          
+                <div class="col-lg-3 col-md-4 col-sm-4 col-4 ridetwo">
+						<h1><p th:text="${qtdServico}"></p></h1>                	                   	
+                </div>               
+                 <div class="col-lg-9 col-md-8 col-sm-8 col-8 fontsty">                    
+                    <h2>Serviços</h2>
+                </div>
+              </div>             
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2 mt-4">
+            <div class="inforide">
+              <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-4 ridethree">
+                    <h1><p th:text="${qtdContrato}"></p></h1>    
+                </div>
+                <div class="col-lg-9 col-md-8 col-sm-8 col-8 fontsty">                    
+                    <h2>Contratos</h2>
+                </div>                
+              </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        	
+      <br><br><br>
+      
+      <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <canvas class="line-chart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <canvas id="bar-chart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  
+  <script th:inline="javascript">
+  /*<![CDATA[*/
+    var ctx = document.getElementsByClassName("line-chart");
+	var jan= [[${jan}]];
+	var fev= [[${fev}]];	
+	var mar= [[${mar}]];	
+	var abr= [[${abr}]];	
+	var mai= [[${mai}]];	
+	var jun= [[${jun}]];	
+	var jul= [[${jul}]];	
+	var ago= [[${ago}]];	
+	var set= [[${set}]];	
+	var out= [[${out}]];	
+	var nov= [[${nov}]];	
+	var dez= [[${dez}]];	
+
+	var chartGraph = new Chart(ctx, {
+	  type: 'line',
+	  data:{
+	    labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+	    datasets: [{
+	      label: "Quantidade Serviços Prestados 2020",
+	      data: [jan,fev,mar,abr,mai,jun,jul,ago,set,out,nov,dez],
+	      borderWidth: 6,
+	      borderColor: 'rgba(0,42,142,0.85)',
+	      backgroundColor: 'transparent' 
+	    }
+	    ]
+	  },
+	  options:{
+	    title: {
+	      display: true,
+	      fontSize: 20,
+	      text: "Relação entre seus serviços prestados e solicitações de serviços"
+	    },
+	    labels: {
+	      fontStyle: "bold"
+	    },
+	    scales: {
+	      yAxes: [{
+	        ticks: {
+	          beginAtZero: true
+	        }
+	      }]
+	    },
+	    animationEnabled: true,
+	
+	  }
+});
+	/*]]>*/
+</script>
+
+<script th:inline="javascript">
+/*<![CDATA[*/
+  var ctx = document.getElementById("bar-chart");
+
+  var chart = ctx.getContext('2d');
+
+  var e5=[[${cinco}]];
+  var e4=[[${quatro}]];
+  var e3=[[${tres}]];
+  var e2=[[${dois}]];
+  var e1=[[${um}]];
+  
+  var myChart = new Chart(ctx, {
+    type: 'horizontalBar',
+    data: {
+      labels: ['5 estrelas', '4 estrelas', '3 estrelas', '2 estrelas', '1 estrela'],
+      datasets: [{
+        label: 'Quantidade de estrelas', 
+        data: [e5,e4,e3,e2,e1],
+        backgroundColor: [
+        'rgba(0,42,142,0.85)',
+        'rgba(231,132,0,0.85)',
+        'rgba(0, 42, 142, 0.85)',
+        'rgba(231,132,0,0.85)',
+        'rgba(0, 42, 142, 0.85)'
+        ],
+        borderColor: [
+        'rgba(0,42,142,1)',
+        'rgba(231,132,0,1)',
+        'rgba(0,42,142,1)',
+        'rgba(231,132,0,1)',
+        'rgba(0,42,142,1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        fontSize: 20,
+        text: "Média das avaliações recebidas por seus clientes (2020)"
+      },
+      labels: {
+        fontStyle: "bold"
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+
+  /*]]>*/
+</script>
+      
+          
+    </div>    
+  </div>  
+  
+  <script>
+    var mini = true;
+
+    function toggleSidebar() {
+      if (mini) {
+        console.log("opening sidebar");
+        document.getElementById("mySidebar").style.width = "300px";
+        document.getElementById("main").style.marginLeft = "300px";
+        this.mini = false;
+      } else {
+        console.log("closing sidebar");
+        document.getElementById("mySidebar").style.width = "86px";
+        document.getElementById("main").style.marginLeft = "86px";
+        this.mini = true;
+      }
+    }
+
+  </script>
+
+</body>
+</html>

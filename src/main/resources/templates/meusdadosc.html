@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns= "http://w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="/style1.css">
+	<link type="text/css" href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">	
+ 	<script src="/jquery/dist/jquery.min.js"></script>
+ 	<script type="module" src="/popper.js/dist/popper.min.js"></script>
+ 	<script src="/bootstrap/dist/js/bootstrap.min.js"></script>	
+</head>
+
+<body>
+
+	<div th:insert="fragments.html :: navbarperfil"></div>	
+  	<br><br><br>		
+
+   	<div th:insert="fragments.html :: sidebarcliente"></div>
+
+  <div id="main">
+    <div class="container-fluid">
+	<br>      
+	<div class="justify-content-start">                                            
+          <form th:object="${clienteOB}" th:action="@{/alterarcliente}" th:method="POST" id="validate" name="frmPrestador" enctype="multipart/form-data">
+        <div class="col-md-8 order-md-1">
+        <br>
+                <h5>Dados pessoais</h5>
+                <hr>        
+              <div class="text-center">            	
+            	<img alt="Image" height="200px" width="200px" class="avatar2" onerror = 'this.src = "/img/semperfil.png"' th:src="|/imagemusuario/${clienteOB.id}|">
+                <br><br>
+                <input type="file" name="filePerfil" id="filePerfil" lang="pt">
+					<label  for="filePerfil"></label>
+                </div>
+                <br>   
+                          
+              <div class="mb-3">                
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control shadow" id="nome" th:field="*{nome}" placeholder="Mariana Pereira da Silva">
+              </div>
+           
+            <div class="mb-3">
+              <label for="dataNascimento">Data de nascimento</label>
+              <input type="date" class="form-control shadow" id="dataNascimento" th:field="*{dataNascimento}">
+            </div>
+           
+            <div class="mb-3">
+                <label for="genero">Gênero</label>
+                <select class="custom-select d-block w-100 shadow" id="genero" th:field="*{genero}">
+                    <option value="vazio">Selecione o gênero</option>
+					   <option value="feminino">Feminino</option>
+					   <option value="masculino">Masculino</option>
+					   <option value="naobinario">Não binário</option>
+					   <option value="naoinformado">Prefiro não informar</option>
+					</select>                
+            </div>  
+
+			<hr>
+          <br>
+            <h5>Contato</h5>
+            <hr>
+          <div class="mb-3">
+              <label for="dataNascimento">Email</label>
+              <input type="email" class="form-control shadow" id="email" th:field="*{email}" placeholder="consertaaqui@gmail.com">
+            </div>
+           
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="contato1">Contato 1</label>
+                <input type="text" class="form-control shadow" id="contato1" th:field="*{contato1}"placeholder="Ex: (99) 99999-9999">
+              </div>
+               
+              <div class="col-md-6 mb-3">
+                <label for="contato 2">Contato 2</label>
+                <input type="text" class="form-control shadow" id="contato2" th:field="*{contato2}" placeholder="Ex: (99) 99999-9999">
+              </div>
+               
+            </div>                    
+           
+           <br>
+           <h5>Endereço</h5>
+           <hr>
+            <div class="mb-3">
+              <label for="endereco">Rua</label>
+              <input type="text" class="form-control shadow" id="endereco" th:field="*{rua}" placeholder="Rua dos bobos, nº 0">
+            </div>
+
+            <div class="row">                
+              <div class="col-md-6 mb-3">
+                <label for="bairro">Bairro</label>
+              <input type="text" class="form-control shadow" id="bairro" th:field="*{bairro}" placeholder="Cidade Nova 2">
+              </div>
+               
+              <div class="col-md-6 mb-3">
+                <label for="zona">Zona</label>
+                <select class="custom-select d-block w-100 shadow" id="zona" th:field="*{zona}">
+				   <option value="norte">Norte</option>
+				   <option value="leste">Leste</option>
+				   <option value="oeste">Oeste</option>
+				   <option value="centro-sul">Centro-Sul</option>
+				   <option value="centro-oeste">Centro-Oeste</option>
+				</select>                
+              </div>
+            </div>
+           
+           
+           <br>
+           <h5>Dados de login</h5>
+           <hr>
+            <div class=" col-md-mb-3">
+              <label for="cpf">CPF</label>
+                <input type="text" class="form-control shadow" id="cpf"  th:field="*{id}" name="cpf" placeholder="Ex: 000.000.000-00">
+            </div>
+           
+            <div class="mb-3">
+            <br>
+              <label for="senha">Senha</label>
+              <input type="password" class="form-control shadow" id="senha" th:field="*{senha}" placeholder="Nova ">
+            </div>                     
+  
+			<button data-role="submit" type="submit" onclick="return frmPrestador()" class="btn btn-perfil text-center btn-lg btn-block">Salvar alterações</button>
+            </div>
+            </form>
+      
+        </div>
+ 
+      <br><br><br><br><br>
+    </div>    
+  </div>  
+
+  <script>
+    var mini = true;
+
+    function toggleSidebar() {
+      if (mini) {
+        console.log("opening sidebar");
+        document.getElementById("mySidebar").style.width = "300px";
+        document.getElementById("main").style.marginLeft = "300px";
+        this.mini = false;
+      } else {
+        console.log("closing sidebar");
+        document.getElementById("mySidebar").style.width = "86px";
+        document.getElementById("main").style.marginLeft = "86px";
+        this.mini = true;
+      }
+    }
+
+  </script>
+
+</body>
+</html>
