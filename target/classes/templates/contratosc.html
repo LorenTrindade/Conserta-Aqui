@@ -67,15 +67,9 @@
 						    <td th:text="${cf.servico.id}"></td>	
 						    <td class="td-number">
 						    <a  class="btn btn-outline-warning" data-toggle="modal" data-target="#avaliacaoP"><i class="fa fa-smile-o" aria-hidden="true"></i>
-						    </a></td>		    						    
-					    </tr>
-					    </tbody>			
-            </table>
-            </div>
-      <br><br><br><br><br>
-    </div>    
-  </div>  
-<!-- Modal -->
+						    </a></td>		
+						    
+						    <!-- Modal -->
 <div class="modal fade" id="avaliacaoP" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -88,6 +82,8 @@
       <div class="modal-body">
         <h5>Avalie o serviço do prestador</h5>
         <form th:action="@{/avaliarcontrato}" th:object="${avaliacaoOB}" th:method="POST">
+        	<input type="number" name="servicoID" th:value="${cf.servico.id}"/>
+        
         <div class="vote">
 			<label>
 			    <input type="radio" value="1" th:field="*{valor}"/>
@@ -118,7 +114,15 @@
     </div>
   </div>
 </div>
-    
+						    
+						        						    
+					    </tr>
+					    </tbody>			
+            </table>
+            </div>
+      <br><br><br><br><br>
+    </div>    
+  </div>      
   <script>
     var mini = true;
 

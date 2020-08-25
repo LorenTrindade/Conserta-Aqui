@@ -16,5 +16,18 @@ public class PaginasController {
 		
 	}
 	
+	@RequestMapping(method = RequestMethod.GET, value = "/calculos")
+	public String calculos() {							
+		
+		return "telacalculos";
+		
+	}
 	
+	@RequestMapping(method = RequestMethod.GET, value = "/termosdeuso")
+	public String termos() {							
+		
+		return "termosdeuso";
+		
+	}
+		
 }

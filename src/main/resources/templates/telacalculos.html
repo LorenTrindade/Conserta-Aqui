@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html xmlns= "http://w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="/style1.css">
+	<link type="text/css" href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">	
+ 	<script src="/jquery/dist/jquery.min.js"></script>
+ 	<script type="module" src="/popper.js/dist/popper.min.js"></script>
+ 	<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+	<script src="js/calculoPiso.js"></script>
+  <script src="js/calculoParede.js"></script>
+  <script src="js/calculoReboco.js"></script>
+  <script src="js/calculoTinta.js"></script>
+  <script src="js/conversao.js"></script>
+
+
+  <style>
+
+    body{
+      font-family: arial;
+    }
+    input{
+      border: white;
+      color: chocolate;
+      font-size: 20px;
+    }
+    input[type=reset] {
+      background-color: #0c3d5e;
+      color: white;
+      padding: 12px;
+      border-radius: 4px;
+      justify-content: center;
+      align-items: center;
+    }
+    input[type=reset]:hover{
+      background-color: #105170;
+
+    }
+
+    .btn-Calculadora{
+      background-color: #f2f2f2;
+      color: #0c3d5e;
+    }
+    .btn-Calculadora:hover{
+      background-color: #e6e6e6;
+    }
+    .btn-Converter{
+      background-color: #e6e6e6;
+      color: #0c3d5e; 
+    }
+    .btn-Converter:hover{
+      background-color: #d9d9d9;
+    }
+
+
+  </style>
+
+</head>
+
+<body>
+
+
+  <script src="node_modules/jquery/dist/jquery.slim.js" charset="utf-8"></script>
+  <script src="node_modules/popper.js/dist/popper.js" charset="utf-8"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.js" charset="utf-8"></script>
+  
+  <button onclick="topFunction()" id="myBtn" title="Ir para o topo"><i class="fa fa-arrow-up"></i></button>
+  
+
+  <nav class="navbar navbar-expand-md fixed-top shadow">
+    <a class="navbar-brand" href="#">
+      <img src="img/logo.png" class="img-fluid" alt="Conserta Aqui">
+    </a>
+
+    <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html.html">Início <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login.html">Minha conta</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Como funciona?</a>
+        </li>
+      </ul>
+      
+      <form class="form-inline my-2 my-lg-3">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Digite aqui">
+        </div>
+        <button type="submit" class="btn btnDivulgar"><i class="fa fa-search mr-0" style="color: white;"></i></button>
+      </form>   
+    </div>
+  </nav>
+
+  <br><br><br><br><br><br> 
+  
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 ">
+        <nav>
+          <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Calculadora Conserta Aqui  <img src="img/c1.png" width="35px" height="35px"></a>
+            <a class="nav-item nav-link" id="nav-parede-tab" data-toggle="tab" href="#nav-parede" role="tab" aria-controls="nav-parede" aria-selected="false">Construção parede  <img src="img/c2.png" width="40px" height="40px"></a>
+            <a class="nav-item nav-link" id="nav-reboco-tab" data-toggle="tab" href="#nav-reboco" role="tab" aria-controls="nav-reboco" aria-selected="false">Reboco parede  <img src="img/c3.png" width="40px" height="40px"></a>
+            <a class="nav-item nav-link" id="nav-piso-tab" data-toggle="tab" href="#nav-piso" role="tab" aria-controls="nav-piso" aria-selected="false">Piso  <img src="img/c4.png" width="35px" height="35px"></a>
+            <a class="nav-item nav-link" id="nav-pintura-tab" data-toggle="tab" href="#nav-pintura" role="tab" aria-controls="nav-pintura" aria-selected="false">Pintura de parede<img src="img/c5.png" width="35px" height="35px"></a>    
+          </div>
+        </nav>
+        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <img src="img/capacalculadora.png" class="img-fluid">
+          </div>
+
+          <div class="tab-pane fade" id="nav-parede" role="tabpanel" aria-labelledby="nav-parede-tab">
+           <div class="container-fluid">
+            <form name="form">
+              <div class="row">
+               <div class="col-md-6" style="background-color: #0c3d5e">
+                <div class="info"> 
+                 <h2>Insira alguma informações de sua obra e nós fazemos o cálculo para você!</h2>
+
+                 <label for="dimensoes"><span style="color: white">1.Digite ou selecione as dimensões da parede(m):</span></label>
+                 <div class="form-group">
+                  <label>Altura</label>
+                  <input autofocus id="alturaPa" title="Informe a altura a ser calculada" placeholder="Altura" class="form-control input-md text-center" type="number" name="alturaPa" required>
+                </div>
+                <div class="form-group">
+                  <label>Largura</label>
+                  <input autofocus id="larguraPa" title="Informe a largura a ser calculada" placeholder="Largura" class="form-control input-md text-center" type="number" name="larguraPa" required>
+                </div>
+                <label for="tipoTijolo"><span style="color: white">2.Escolha o tipo de tijolo:</span></label>
+                <select class="custom-select d-block w-100 shadow" name="tipoTijolo" id="tipoTijolo" required>  
+                  <option value="0">Selecione</option>
+                  <option value="10">Bloco Ceramico 6 furos - 9x14x19 cm</option> 
+                  <option value="11" >Bloco Ceramico 6 furos - 9x14x24 cm</option>
+                  <option value="12">Bloco Ceramico 8 furos - 9x14x19 cm</option>
+                </select>
+                <br>
+                <label for="posicao"><span style="color: white">3.Forma de assentamento:</span></label>
+                <div>
+                 <input type="radio" id="positionChoice1"
+                 name="posicao" value="email">
+                 <label for="positionChoice1">Cutelo(Em Pé)</label>
+
+                 <input type="radio" id="positionChoice2"
+                 name="posicao" value="deitado">
+                 <label for="positionChoice2">Deitado</label>
+               </div>             
+               <br>
+               <br>
+               <div class="text-center">
+                <button type="button" class="btn btn-Calculadora btn-lg" onclick="calcularParede()">Calcular</button>
+              </div>
+              <br><br>
+              <br><br>
+            </div>
+          </div>
+
+
+          <div class="col-md-6" style="background-color: #f2f2f2">
+            <div class="result">
+              <h2>Resultado:</h2>
+              <br><br>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Área Total(m²):<span id="areaTotal"><input type="text" name="resultadoArea"></span></li>
+                <li class="list-group-item">Tijolos(Unid.):<span id="tijolo"><input type="text" name="texto"></span></li>
+                <li class="list-group-item">Cimento (Kg):<span id="cimento"><input type="text" name="resultadoCimento"></span></li>
+                <li class="list-group-item">Cal (kg):<span id="cal"><input type="text" name="resultadoCal"></span></li>
+                <li class="list-group-item">Areia (lata 18L):<span id="areia"><input type="text" name="resultadoAreia"></span></li>
+              </ul>
+              <br><br><br><br><br><br><br><br>
+              <div class="text-center">
+                <input type="reset" name="limparPiso" value="Novo cálculo"> 
+              </div>   
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="nav-reboco" role="tabpanel" aria-labelledby="nav-reboco-tab">
+    <div class="container-fluid">
+      <form name="form2">
+        <div class="row">
+         <div class="col-md-6" style="background-color: #0c3d5e">
+          <div class="info">
+           <h2>Insira alguma informações de sua obra e nós fazemos o cálculo para você!</h2>
+           <label for="espessura"><span style="color: white">1.Selecione a espessura do reboco:</span></label>
+           <select class="custom-select d-block w-100 shadow" name="espessura" id="espessura" required>  
+            <option value="0">Selecione</option>
+            <option value="10" data-class="espessura">2cm</option>    
+            <option value="11" data-class="espessura">3cm</option>
+          </select>  
+          <br>
+          <label for="dimensoes"><span style="color: white">2.Digite ou selecione as dimensões da parede(m):</span></label>
+          <div class="form-group">
+            <label>Altura</label>
+            <input autofocus id="alturaRe" title="Informe a altura a ser calculada" placeholder="Altura" class="form-control input-md text-center" type="number" name="alturaRe" required>
+          </div>
+          <div class="form-group">
+            <label>Largura</label>
+            <input autofocus id="larguraRe" title="Informe a largura a ser calculada" placeholder="Largura" class="form-control input-md text-center" type="number" name="larguraRe" required>
+          </div>   
+          <br><br><br>
+          <div class="text-center">
+            <button type="button" class="btn btn-Calculadora btn-lg" onclick="calcularReboco()">Calcular</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6" style="background-color: #f2f2f2">
+       <div class="result">
+        <h2>Resultado:</h2>
+        <br>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Área Total(m²):<span id="areaTotal"><input type="text" name="resultadoArea2"></span></li>
+          <li class="list-group-item">Cimento (Kg):<span id="cimento"><input type="text" name="resultadoCimento2"></span></li>
+          <li class="list-group-item">Cal (kg):<span id="cal"></span><input type="text" name="resultadoCal2"></li>
+          <li class="list-group-item">Areia (Lata 18L):<span id="areia"><input type="text" name="resultadoAreia2"></span></li>
+        </ul>
+        <br><br><br><br><br><br><br><br><br>
+        <div class="text-center">
+          <input type="reset" name="limparPiso" value="Novo cálculo"> 
+        </div>    
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+</div>
+
+<div class="tab-pane fade" id="nav-piso" role="tabpanel" aria-labelledby="nav-piso-tab">
+ <div class="container-fluid">
+  <form name="form3">
+    <div class="row">
+     <div class="col-md-6" style="background-color: #0c3d5e">
+      <div class="info">
+       <h2>Insira alguma informações de sua obra e nós fazemos o cálculo para você!</h2>
+
+       <label for="tipoTijolo"><span style="color: white">1.Digite a espessura do piso(cm):</span></label>
+       <select class="custom-select d-block w-100 shadow" id="espessuraPiso" required>
+        <option value="0">Selecione</option>
+        <option value="10" data-class="espessuraPiso">2cm</option>    
+        <option value="11" data-class="espessuraPiso">3cm</option>
+      </select>
+      <br>
+      <label for="dimensoes"><span style="color: white">2.Digite ou selecione as dimensões do piso(m):</span></label>
+      <div class="form-group">
+        <label>Altura</label>
+        <input autofocus id="alturaPi" title="Informe a altura a ser calculada" placeholder="Altura" class="form-control input-md text-center" type="number" name="alturaPi" required>
+      </div>
+      <div class="form-group">
+        <label>Largura</label>
+        <input autofocus id="larguraPi" title="Informe a largura a ser calculada" placeholder="Largura" class="form-control input-md text-center" type="number" name="larguraPi" required>
+      </div>   
+      <br><br><br>
+      <div class="text-center">
+        <button type="button" class="btn btn-Calculadora btn-lg" onclick="calcularPiso()">Calcular</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6" style="background-color: #f2f2f2">
+   <div class="result">
+    <h2>Resultado:</h2>
+    <br>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Área Total(m²):<span id="areaTotal"><input type="text" name="resultadoArea3"></span></li>
+      <li class="list-group-item">Cimento (Kg):<span id="cimento"><input type="text" name="resultadoCimento3"></span></li>
+      <li class="list-group-item">Areia (Lata 18L):<span id="areia"><input type="text" name="resultadoAreia3"></span></li>
+    </ul>
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <div class="text-center">
+      <input type="reset" name="limparPiso" value="Novo cálculo"> 
+    </div>   
+  </div>
+</div>
+</div>
+</form>
+</div>
+</div>
+
+<div class="tab-pane fade" id="nav-pintura" role="tabpanel" aria-labelledby="nav-pintura-tab">
+  <div class="container-fluid">
+    <form name="form4">
+      <div class="row">
+       <div class="col-md-6" style="background-color: #0c3d5e">
+        <div class="info"> 
+         <h2>Insira alguma informações de sua obra e nós fazemos o cálculo para você!</h2>
+
+         <label for="tipoSuperficie"><span style="color: white">1.Selecione o tipo de superfície:</span></label>
+         <select class="custom-select d-block w-100 shadow" name="tipoSuperficie" id="tipoSuperficie" required>  
+          <option value="0">Selecione</option>
+          <option value="Parede">Parede</option> 
+          <option value="Piso" >Piso</option>
+          <option value="Madeira">Madeira</option>
+          <option value="Azulejo">Azulejo</option>
+          <option value="Metal">Metal</option>
+        </select>             
+        <br>
+
+        <label for="qtDemao"><span style="color: white">2.Digite ou selecione a quantidade de demão(s) de tinta:</span></label>
+        <p><span style="color: white">O número de demãos varia de acordo com a cor do revestimento que será utilizado, a superfície e se é pintura original ou retoque.</span></p>
+        <div class="form-group">
+          <input autofocus id="qtDemao" title="Informe a quantidade de demão(s)a ser calculada" placeholder="Demão" class="form-control input-md text-center" type="number" name="qtDemao" required="">
+        </div>
+        <br>
+
+        <label for="dimensoes"><span style="color: white">3.Digite ou selecione as dimensões da parede(m):</span></label>
+        <div class="form-group">
+          <label>Altura</label>
+          <input autofocus id="alturaTinta" title="Informe a altura a ser calculada" placeholder="Altura" class="form-control input-md text-center" type="number" name="alturaTinta" required>
+        </div>
+        <div class="form-group">
+          <label>Largura</label>
+          <input autofocus id="larguraTinta" title="Informe a largura a ser calculada" placeholder="Largura" class="form-control input-md text-center" type="number" name="larguraTinta" required>
+        </div>
+        <br>
+
+        <br>
+        <br>
+        <div class="text-center">
+          <button type="button" class="btn btn-Calculadora btn-lg" onclick="calcularTinta()">Calcular</button>
+        </div>
+        <br><br>
+        <br><br>
+      </div>
+    </div>
+
+    <div class="col-md-6" style="background-color: #f2f2f2">
+      <div class="result">
+        <h2>Resultado:</h2>
+        <br><br>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Superfície:<span id="areaTotal"><input type="text" name="superficie"></span></li>
+          <li class="list-group-item">Área total(m²):<span id="tijolo"><input type="text" name="resultadoArea4"></span></li>
+          <li class="list-group-item">Quantidade de tinta necessária(L):<span id="areia"><input type="text" name="resultadoTinta"></span></li>
+        </ul>
+        <br>
+        <h3>Converter quantidade total de tinta em latas</h3>
+        <p>Selecione no formato da lata desejado para que a quantidade em litros seja convertida em número de latas</p>
+        <div class="row">
+          <div class="col-md-6">
+            <select class="custom-select d-block w-100 shadow" name="tipoLata" id="tipoLata" required> <option value="0">Selecione</option>
+              <option value="10">Galão de 18 litros</option> 
+              <option value="11" >Lata de 3.6 litros</option>
+              <option value="12">Latinha 900 ml</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <button type="button" class="btn btn-Converter btn-lg" onclick="conversaoTinta()">Converter</button>
+          </div>
+        </div>
+
+        <br>
+        <div class="resultado">
+          <label for="totalTinta" style="color: #0c3d5e";>Total de Tinta
+            <input type="text" name="totalTinta">
+          </label>
+          <label for="converter" style="color: #0c3d5e";> Latas necessárias
+            <input type="text" name="converter">
+          </label>
+        </div>
+        <br>
+        <br>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-4">
+              <img src="img/lataGrande.png" height="80px" width="80px">
+              <span style="color: #0c3d5e">18 Litros</span> 
+            </div>
+            <div class="col-md-4">
+              <img src="img/lataMedia.png" height="80px" width="80px">
+              <span style="color: #0c3d5e">3.6 Litros</span> 
+            </div>
+            <div class="col-md-4">
+              <img src="img/lataPequena.png" height="70px" width="70px">
+              <span style="color: #0c3d5e">900 ml</span> 
+            </div>
+          </div>
+        </div>
+        
+        <br><br>
+        <div class="text-center">
+          <input type="reset" name="limparPiso" value="Novo cálculo"> 
+        </div>   
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<br><br><br><br><br><br><br><br><br><br>
+
+<div class="mt-5 pt-5 pb-5 footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-xs-12 about-company">
+        <h2>Sobre</h2>
+        <p class="pr-5 text-white-50">Site destinado a trabalhadores do  setor de construção civil e pequenos reparos em residências, prédios. O site disponibiliza  a  oportunidade aos  servidores a divulgar   seus  serviços através  de  uma  ferramenta online de  forma prática,simples e gratuita. Além de ser  ideal para clientes, que desejam pesquisar preços  e  ter  qualidade em sua obra requerida.</p>
+      </div>
+      <div class="col-lg-3 col-xs-12 links">
+        <h4 class="mt-lg-0 mt-sm-3">Links</h4>
+        <ul class="m-0 p-0">
+          <li><a href="#">Como funciona?</a></li>
+          <li><a href="termosdeuso.html">Termos de uso</a></li>
+          <li><a href="telaServicos.html">Serviços</a></li>
+          <li><a href="#">Desativar conta</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-xs-12 location"><h4 class="mt-lg-0 mt-sm-4">Sobre nós</h4>
+        <div class="row">
+          <img src="http://placehold.it/85x85">
+          <img src="http://placehold.it/85x85">
+          <img src="http://placehold.it/85x85">
+          <img src="http://placehold.it/85x85">
+        </div>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col copyright">
+        <p class=""><small class="text-white-50">© 2020 Conserta Aqui</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+
+</body>
+
+</html>

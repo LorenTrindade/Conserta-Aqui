@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html xmlns= "http://w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="/style1.css">
+	<link type="text/css" href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">	
+ 	<script src="/jquery/dist/jquery.min.js"></script>
+ 	<script type="module" src="/popper.js/dist/popper.min.js"></script>
+ 	<script src="/bootstrap/dist/js/bootstrap.min.js"></script>	
+	</head>
+
+	<style>
+/*Link não visitado */
+a:link {
+  color: #0c3d5e;
+  text-decoration: none;
+}
+ 
+/*Link já visitado*/
+a:visited {
+  color:  #cc6600;
+  text-decoration: none;
+}
+ 
+/*Quando o mouse passa por cima*/
+a:hover {
+  color: #125887;
+  text-decoration: none;
+}
+ 
+/*Link ativo/selecionado*/
+a:active {
+  color: #092c44;
+  text-decoration: none;
+}
+</style> 
+
+</head>
+
+<body>
+    
+    <button onclick="topFunction()" id="myBtn" title="Ir para o topo"><i class="fa fa-arrow-up"></i></button>
+
+  <!-- Primeiro Navbar-->
+  <nav class="navbar navbar-expand-md fixed-top">
+    <a class="navbar-brand" href="#">
+      <img src="img/logo.png" class="img-fluid" alt="Conserta Aqui">
+    </a>
+
+    <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto ">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Início <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/servicos">Serviços</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Como funciona?</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Minha Conta</a>
+        </li>
+      </ul>
+   <form class="form-inline my-2 my-lg-3">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Digite aqui">
+        </div>
+        <button type="submit" class="btn btnDivulgar"><i class="fa fa-search mr-0" style="color: white;"></i></button>
+      </form>
+    </div>
+  </nav>
+
+  <br><br><br><br><br>
+  
+  
+  <section class="content-section">
+    <div class="corpo">
+      <div class="container text-justify">
+
+        <div class="row">
+          <div class="col-lg-12 ">
+
+            <p><b>TERMO E CONDIÇÕES GERAIS DE USO DO SITE</b></p>
+            
+            <p>Olá! Que bom que você chegou até aqui. É muito importante para você, que utiliza nosso Website <b>Conserta Aqui</b> conheça os Termos e Condições Gerais de Uso (T&C), pois eles trazem informações necessárias para que usuários deste Website, sejam clientes ou prestadores de serviços, tenham uma boa experiência ao utilizar nossa plataforma. Usar o Website implica na compreensão, aceitação e vinculação automática a este T&C. Se Você não concordar com quaisquer condições previstas neste T&C, poderá deixar de utilizar o Website.</p>
+            <p>Você vai encontrar nos itens abaixo, de forma bastante objetiva e clara, as principais informações para que possa utilizar corretamente as nossas funcionalidades, não deixe de usar nosso índice para ir direto a qualquer assunto abordado nesse T&C.</p>
+            
+
+            <p><b><a href="#item1">1.	Quem é o Conserta Aqui</a></b></p>  
+            <p><b><a href="#item2">2.    Como o Website Funciona</a></b></p>
+            <p><b><a href="#item3">3.	Quem são os usuários</a></b></p>
+            <p><b><a href="#itrm4">4.	Serviços disponibilizados</a></b></p>
+            <p><b><a href="#item5">5.	Capacidade para cadastrar-se</a></b></p>
+            <p><b><a href="#item6">6.	Orçamentos e contratação de serviço</a></b></p>
+            <p><b><a href="#item7">7.	Obrigação do usuário</a></b></p>
+            <p><b><a href="#item8">8.	Política de Privacidade e divulgação de Informações</a></b></p>
+            <p><b><a href="#item9">9.	Aplicabilidade deste T&C</a></b></p>
+            <p><b><a href="#item10">10.   Sua Conta</a></b></p>
+            <p><b><a href="#item11">11.   Postagens no Perfil</a></b></p>
+            <p><b><a href="#item12">12.	Solicitação do Serviço</a></b></p>
+            <p><b><a href="#item13">13.	Aceitação do Serviço</a></b></p>
+            <p><b><a href="#item14">14.   Disponibilidade do Website</a></b></p>
+            <p><b><a href="#item15">15.   Propriedade Intelectual</a></b></p>
+            <p><b><a href="#item16">16.   Conflitos</a></b></p>
+            
+            <br>
+            <p id="item1"><b> 1. Quem é o Conserta Aqui</b></p>
+            <p>Ao utilizar o Website, você está acessando uma plataforma desvinculada a qualquer Empresa privatizada ou associação com terceiros. O Website Conserta Aqui visa disponibilizar uma interação entre os usuários, para informações mais reforçadas leia nosso T&C abaixo. </p>
+            <br>
+            
+            <p id="item2"><b>2. Como o Website Funciona</b></p>
+            <p>Por ser uma plataforma de divulgação  contratação de serviços, o Website fornece um espaço online livre para aproximar as pessoas que queiram oferecer seus serviços. Não fornecemos conteúdos, ferramentas ou benefícios pagos, todas as divulgações serão gratuitas. Caso o Website venha disponibilizar serviços sugestivos, serão de acordo com relevância, maior número de serviços realizados ou classificação. O Conserta Aqui oferece filtros para aproximar prestadores de serviços e clientes de uma mesma localidade, facilitando assim o encontro entre as partes.</p>
+            <p>O Website não presta serviços de consultoria ou intermediação, e nem é proprietário dos serviços oferecidos nos anúncios, não intervém na definição dos preços. <b>Qualquer contratação de serviços se dá entre os usuários, sem envolvimento do Website.</b> Se algo der errado em sua transação, qualquer indenização deverá ser reclamada com o outro usuário com quem você negociou.</p>
+            <br>
+            
+            <p id="item3"><b>3. Quem são os usuários</b></p>
+            <p><b>3.1. Clientes</b></p>
+            <p>Os clientes possuem cadastro e podem navegar no Website, filtrar serviços desejados e solicitar um determinado serviço de interesse dos prestadores de serviço, realizando a negociação por conta própria</p>
+            <br>
+            <p><b>3.2. Prestadores de Serviço</b></p>
+            <p>Os prestadores de serviço possuem cadastro e um espaço online gratuito para divulgar seus serviços realizados, suas formações e demais informações que julguem necessárias. Qualquer contratação realizada pelos clientes deve-se ser aceita antes de efetuada, sendo de sua própria escolha a atuação no serviço requerido. Todos os prestadores de serviços devem oferecer <b>SOMENTE</b> serviços disponíveis no Website, visto que em seus cadastros estarão vinculados a estes.</p>
+            <br>
+            
+            <p id="item4"><b>4. Serviços disponibilizados</b></p>
+            <p>O Website fornece os serviços: Elétrica, hidráulica, refrigeração, pintura, reparos e alvenaria. Qualquer outro serviço fornecido pelo prestador de serviço deve ser julgado suspeito de fraude ou cilada. Cabe ao cliente decidir solicitar ou não tal serviço, caso solicite, será de sua TOTAL <b>RESPONSABILIDADE</b> as consequências decorrentes.</p>
+            <br>
+            
+            <p id="item5"><b>5. Capacidade para cadastrar-se</b></p>
+            <p>O usuário é capaz de utilizar o Website ao declarar ser plenamente capaz para manifestar a concordância prevista neste termo e condições de uso do Website.</p>
+            <p>A utilização dos serviços aqui disponíveis implica na mais alta compreensão, aceitação e vinculação automática do usuário a este termo e condições de uso do Website, concordando ainda, em <b>respeitar e seguir todas e quaisquer diretrizes dispostas nele.</b></p>
+            <p>Declara o usuário estar ciente de que este termo e condições de uso do Website tem caráter pessoal, intransferível e feito exclusivamente através da internet, onde todas as informações necessárias estão divulgadas.</p>
+            <br>
+            
+            <p id="item6"><b>6. Orçamentos e contratação de serviço</b></p>
+            <p>Para melhor satisfação dos usuários, o Website permite por meio online a realização do orçamento e contratação do serviço. O prestador de serviço disponibilizará um número para contato e assim, o cliente poderá entrar em contato caso ocorra interesse no serviço. O cliente poderá solicitar o serviço desejado apenas uma vez para cada prestador de serviço, se tal atuar em mais de um serviço, o cliente poderá solicitar <b>UMA VEZ</b> para <b>CADA SERVIÇO</b>. O prestador de serviço receberá uma notificação em sua conta da solicitação realizada pelo cliente, e após fazer seu orçamento em negociação com cliente por meio eletrônico, poderá aceitar ou recusar essa solicitação. Ao finalizar o serviço será emitido uma mensagem de confirmação para o cliente e para o prestador de serviço. <b>OS USUÁRIOS PODEM ESTAR SUJEITOS A DENÚNCIAS E RECLAMAÇÕES.</b></p>
+            <br>
+            
+            <p id="item7"><b>7. Obrigação do usuário</b></p>
+            <p>Deverá o usuário tomar todas as medidas necessárias para proteger-se de danos, fraudes ou estelionatos advindos de “hackers” em seu equipamento.</p>
+            <p>O usuário, aceita, receber mensagens por e-mail e SMS dos demais usuários para efetuar orçamentos e negociações, para acompanhamento de sua solicitação de serviço, como também para receber notícias e informativos.<b> Quaisquer conflitos entre a comunicação entre as partes envolvidas devem ser resolvidas entre tais</b>. Para solucionar esses conflitos sugere-se bloquear o número ou e-mail, prevenindo demais infortúnios. </p>
+            <br>
+            
+            <p id="item8"><b>8. Política de Privacidade e divulgação de Informações</b></p>
+            <p>As informações fornecidas no Website serão mantidas em uma base de dados que atenda aos padrões de segurança, sendo que estas informações ficarão armazenadas por um período necessário ou permanente.</p>
+            <br>
+            
+            <p id="item9"><b>9. Aplicabilidade deste T&C</b></p>
+            <p>Este T&C é exclusivo para a utilização que Você fizer da plataforma Conserta Aqui, e está sujeitas a mudanças conforme necessário , portanto cabe a Você verificar as condições vigentes no momento do uso do Website.</p>
+            <br>
+            
+            <p id="item10"><b>10. Sua Conta</b></p>
+            <p>Sua conta é um cadastro único para uso do Website e obrigatória para inserir conteúdo de mídia ou textos descritivos. A utilização do Website é restrita a pessoas maiores de 18 anos idade completos.</p>
+            <p><b>10.1. Criando a Conta.</b></p>
+            <p>Ao criar uma conta no Website, Você declara que todas as informações fornecidas (“Informações da Conta”) são verdadeiras e assume a responsabilidade de mantê-las atualizadas. Para proteção de sua conta, sua senha deve ser mantida em sigilo e não deve ser compartilhada, pois as atividades realizadas no Website com o uso de sua conta serão sempre de sua responsabilidade.</p>
+            <p><b>10.2. Dados de Contato.</b></p>
+            <p>As Informações da Conta servem para contato de potenciais clientes e também do Conserta Aqui, que poderá enviar ainda divulgações sobre sugestões, novidades ou outras informações sobre o Website. Os e-mails, ligações ou mensagens de texto enviados para seu endereço cadastrado serão considerados como entregues a Você. Você tem o direito de optar por deixar de receber tais e-mails e conteúdos provenientes do website mas, e-mails, mensagens ou ligações provenientes de clientes <b>NÃO SERÃO POSSÍVEIS DE SILENCIAR.</b></p>
+            <p><b>10.3. Suspensão e Exclusão da Conta.</b></p>
+            <p>Use sua conta com consciência, pois ela poderá ser suspensa ou excluída pelo site e Você poderá ser inabilitado, sem aviso prévio, em caso de falsidade nas Informações da Conta, mau uso, violação da legislação, da moral, da ordem pública, destes T&C e das Condições Particulares que sejam aplicáveis, bem como utilização do Website para atividades ilícitas ou imorais, pela falta de pagamento, ou qualquer atividades que, a critério da Website, não esteja de acordo com suas políticas internas. <b>APÓS  3 DENÚNCIAS REALIZADAS PELOS USUÁRIOS DO SITE, SUA CONTA SERÁ DESABILITADA</b> e não utilizará dos benefícios do Website pois sua conta será EXCLUÍDA e não será possível criar outra.</p>
+            <br>
+            
+            <p id="item11"><b>11. Postagens no Perfil </b></p>
+            <p>Os Prestadores de Serviço possuem um espaço livre para postagens de mídia e texto, mas havendo violação e postagens ilícitas ou imorais, sua conta está sujeita a ser <b>EXCLUÍDA PERMANENTEMENTE através de denúncias.</b></p>
+            <br>
+            
+            <p id="item12"><b>12. Negociação e Conclusão do Serviço</b></p>
+            <p>O cliente, ao se interessar por determinado serviço, realizará primeiramente a negociação junto ao prestador de serviço. Será emitido uma mensagem de negociação em andamento enquanto o prestador não confirmar tal negociação. Ao confirmar a negociação, automaticamente aceitará realizar o serviço e deverá estipular uma data de conclusão , ao fim dessa data o Servidor deverá confirmar se realizou o serviço. <b>ATENÇÃO:</b> Se o prestador de serviço não confirmar que realizou tal serviço já negociado, ele perderá este, e <b>não será incluso em seu perfil</b>. O cliente deverá confirmar que o serviço foi realizado, e somente com a confirmação de cliente e prestador de serviço, o serviço tornar-se concluído e passa a pertencer ao perfil do Prestador de Serviço.</p>
+            <br>
+            
+            <p id="item13"><b>13. Aceitação do Serviço</b></p>
+            <p>O prestador de serviço receberá automaticamente uma notificação em sua conta de “negociação em andamento” e poderá aceitá-la ou recusá-la. Ao aceitar deve estipular uma data para conclusão do serviço, nesta data deve-se confirmar o término da obra requerida, no entanto se não houver confirmação, o serviço será excluído e, então não será atribuído ao perfil do prestador de serviço.</p>
+            <br>
+            
+            <p id="item14"><b>14. Disponibilidade do Website</b></p>
+            <p>O Conserta Aqui não garante a disponibilidade, acesso e continuidade do funcionamento do Website ou de suas funcionalidades, atuais ou futuras, não sendo responsável por nenhum dano ou prejuízo causado a Você em caso de indisponibilidade.</p>
+            <br>
+            
+            <p id="item15"><b>15. Propriedade Intelectual</b></p>
+            <p><b>15.1. Proteção à Propriedade Intelectual.</b></p>
+            <p>Sendo um Website de negociação e interação entre usuários, o Website não é responsável por infrações aos direitos de propriedade intelectual, direitos de imagem ou à honra dos Usuários em decorrência dos conteúdos postados pelos usuários anunciantes, mas removerá qualquer anúncio que viole direitos desta natureza através de denúncias contra tal perfil/conta.</p>
+            <p><b>15.2. Propriedade Intelectual do Conteúdo Inserido pelo Usuário.</b></p>
+            <p>Você se declara titular das imagens, vídeos, áudios, textos e qualquer outro conteúdo que inserir no Website, autorizando o Conserta Aqui a reproduzir, distribuir e comunicar publicamente este conteúdo.</p>
+            <br>
+            
+            <p id="item16"><b>16. Conflitos</b></p>
+            <p>O Conserta Aqui se orgulha em estabelecer um ambiente de negócios para benefícios de todos os usuários, e busca que tal interação seja positiva. Se Você tiver qualquer divergência, pedimos que realize um boletim de ocorrência ou realize uma denúncia , observados este T&C, o Website não responsabiliza a qualquer dano moral ou material, fornecendo apenas uma plataforma de facilitação de buscas por determinados serviços.</p>
+            
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <br><br><br><br><br>    
+  
+<div class="mt-5 pt-5 pb-5 footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-xs-12 about-company">
+                    <h2>Sobre</h2>
+                    <p class="pr-5 text-white-50">Site destinado a trabalhadores do  setor de construção civil e pequenos reparos em residências, prédios. O site disponibiliza  a  oportunidade aos  servidores a divulgar   seus  serviços através  de  uma  ferramenta online de  forma prática,simples e gratuita. Além de ser  ideal para clientes, que desejam pesquisar preços  e  ter  qualidade em sua obra requerida.</p>
+                </div>
+                <div class="col-lg-3 col-xs-12 links">
+                    <h4 class="mt-lg-0 mt-sm-3">Links</h4>
+                    <ul class="m-0 p-0">
+                        <li><a href="#">Como funciona?</a></li>                     
+                        <li><a href="/servicos">Serviços</a></li>
+                        <li><a href="#">Desativar conta</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-xs-12 location"><h4 class="mt-lg-0 mt-sm-4">Redes Sociais</h4><p>Facebook<br>Instagram<br>Linkedin</p>                                    
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col copyright">
+                    <p class=""><small class="text-white-50">© 2020 Conserta Aqui</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+	<script src="webjars/jquery/3.5.0/jquery.min.js"></script>
+	<script src="webjars/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	
+</body>
+</html>

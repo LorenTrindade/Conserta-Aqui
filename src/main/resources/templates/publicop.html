@@ -20,7 +20,7 @@
 	<button onclick="topFunction()" id="myBtn" title="Ir para o topo"><i class="fa fa-arrow-up"></i></button>
 	
 		<div id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">    	    		
-    		<a th:href="@{/meudadosc}"><span><i class="material-icons">home</i></span><span class="icon-text">Serviços divulgados</span></a><br>    		    		
+    		<a th:href="@{/meusdadosc}"><span><i class="material-icons">home</i></span><span class="icon-text">Serviços divulgados</span></a><br>    		    		
   		</div>
 
 <div id="main">
@@ -96,7 +96,7 @@
 		<div class="row">
 			<div th:each=" s: ${servicos}" class="col-sm-4">
 				<div class="card mb-4" style="width: 18rem;">
-  					<img class="card-img-top img-responsive" alt="Image" height="190px" width="210px"  onerror = 'this.src = "img/default-img.jpg"' th:src="|/imagem/${s.id}|">  				
+  					<img class="card-img-top img-responsive" alt="Image" height="190px" width="210px"  onerror = 'this.src = "/img/default-img.jpg"' th:src="|/imagem/${s.id}|">  				
   				<ul class="list-group list-group-flush">
 			    <li class="list-group-item"><h1 class="card-title" th:text="${s.titulo}"></h1></li>
 			    <li class="list-group-item"><p class="card-title" th:text=" 'Zona: ' +${s.zona}"></p></li>
@@ -234,6 +234,15 @@ function topFunction() {
 	document.body.scrollTop = 0;
 	document.documentElement.scrollTop = 0;
 }
+</script>
+
+  <script>
+$ (document) .ready (function () {
+  $ ("img"). bind ("erro", function () {
+    // Defina a imagem padrão
+    $ (this) .attr ("src", "/img/default-img.jpg");
+  });
+});
 </script>
 
 </body>
